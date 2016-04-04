@@ -1,6 +1,8 @@
-h1. Phrozn !https://travis-ci.org/Pawka/phrozn.png?branch=master!:https://travis-ci.org/Pawka/phrozn
+h1. Phrekyll !https://travis-ci.org/Pawka/phrozn.png?branch=master!:https://travis-ci.org/Pawka/phrozn
 
-Phrozn is extremely flexible static site generator in PHP.
+Phrekyll is extremely flexible static site generator in PHP.
+
+It is derived from the no-longer-maintained Phrozn project. 
 
 h2. Philosophy
 
@@ -11,7 +13,7 @@ h2. Install
 
 Clone repository from github and change to cloned directory.
 
-bc. $ git clone https://github.com/Pawka/phrozn.git && cd phrozn
+bc. $ git clone https://github.com/lordelph/phrekyll.git && cd phrekyll
 
 Download composer and install required dependencies.
 
