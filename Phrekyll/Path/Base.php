@@ -19,6 +19,7 @@
  */
 
 namespace Phrekyll\Path;
+
 use Phrekyll\Path;
 
 /**
@@ -28,8 +29,7 @@ use Phrekyll\Path;
  * @package     Phrekyll\Path
  * @author      Victor Farazdagi
  */
-abstract class Base
-    implements Path
+abstract class Base implements Path
 {
     /**
      * Source path

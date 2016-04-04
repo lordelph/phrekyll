@@ -19,6 +19,7 @@
  */
 
 namespace Phrekyll\Runner\CommandLine;
+
 use Symfony\Component\Yaml\Yaml;
 
 /**
@@ -28,8 +29,7 @@ use Symfony\Component\Yaml\Yaml;
  * @package     Phrekyll\Runner
  * @author      Victor Farazdagi
  */
-class Commands
-    implements \Iterator
+class Commands implements \Iterator
 {
     /**
      * Loaded commands data
@@ -53,10 +53,12 @@ class Commands
     private static $instance;
 
     private function __construct()
-    {}
+    {
+    }
 
     private function __clone()
-    {}
+    {
+    }
 
     public static function getInstance()
     {

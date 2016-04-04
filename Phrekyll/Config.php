@@ -19,9 +19,10 @@
  */
 
 namespace Phrekyll;
-use Symfony\Component\Yaml\Yaml,
-    Phrekyll\Has,
-    Phrekyll\Autoloader as Loader;
+
+use Symfony\Component\Yaml\Yaml;
+use Phrekyll\Has;
+use Phrekyll\Autoloader as Loader;
 
 /**
  * Phozn configuration reader and aggregator
@@ -30,8 +31,7 @@ use Symfony\Component\Yaml\Yaml,
  * @package     Phrekyll\Site
  * @author      Victor Farazdagi
  */
-class Config
-    implements \ArrayAccess
+class Config implements \ArrayAccess
 {
     /**
      * Loaded YAML config files
@@ -56,7 +56,6 @@ class Config
             foreach ($dir as $item) {
                 if ($item->isFile()) {
                     if (substr($item->getBasename(), -3) === 'yml') {
-
                         $yaml=file_get_contents($item->getRealPath());
                         $this->configs[$item->getBasename('.yml')] = Yaml::parse($yaml);
                     }

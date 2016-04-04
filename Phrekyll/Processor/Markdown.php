@@ -19,6 +19,7 @@
  */
 
 namespace Phrekyll\Processor;
+
 use Michelf\MarkdownExtra as MarkdownParser;
 use Phrekyll\Autoloader as Loader;
 
@@ -29,9 +30,7 @@ use Phrekyll\Autoloader as Loader;
  * @package     Phrekyll\Processor
  * @author      Victor Farazdagi
  */
-class Markdown
-    extends Base
-    implements \Phrekyll\Processor
+class Markdown extends Base implements \Phrekyll\Processor
 {
     /**
      * List of permitted Markdown configuration variables

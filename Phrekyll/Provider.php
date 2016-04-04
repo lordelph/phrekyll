@@ -19,6 +19,7 @@
  */
 
 namespace Phrekyll;
+
 use Phrekyll\Has;
 
 /**
@@ -28,9 +29,9 @@ use Phrekyll\Has;
  * @package     Phrekyll\Provider
  * @author      Victor Farazdagi
  */
-interface Provider
-    extends Has\Config,
-            Has\ProjectPath
+interface Provider extends
+    Has\Config,
+    Has\ProjectPath
 {
     /**
      * Get generated content

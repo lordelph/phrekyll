@@ -19,13 +19,14 @@
  */
 
 namespace Phrekyll\Runner\CommandLine\Callback;
-use Phrekyll\Runner\CommandLine,
-    Phrekyll\Outputter\Console\Color,
-    Phrekyll\Outputter\DefaultOutputter as Outputter,
-    Phrekyll\Outputter\PlainOutputter,
-    Phrekyll\Runner\CommandLine\Reader,
-    Symfony\Component\Yaml\Yaml,
-    Phrekyll\Runner\CommandLine\Commands;
+
+use Phrekyll\Runner\CommandLine;
+use Phrekyll\Outputter\Console\Color;
+use Phrekyll\Outputter\DefaultOutputter as Outputter;
+use Phrekyll\Outputter\PlainOutputter;
+use Phrekyll\Runner\CommandLine\Reader;
+use Symfony\Component\Yaml\Yaml;
+use Phrekyll\Runner\CommandLine\Commands;
 
 /**
  * Base methods for phrekyll command callbacks
@@ -34,8 +35,7 @@ use Phrekyll\Runner\CommandLine,
  * @package     Phrekyll\Runner
  * @author      Victor Farazdagi
  */
-abstract class Base
-    implements CommandLine\Callback
+abstract class Base implements CommandLine\Callback
 {
     /**
      * Status constants
@@ -408,6 +408,4 @@ abstract class Base
         }
         return $this->commandMeta;
     }
-
-
 }

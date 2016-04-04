@@ -19,6 +19,7 @@
  */
 
 namespace Phrekyll\Runner\CommandLine;
+
 use Symfony\Component\Yaml\Yaml;
 
 /**
@@ -28,8 +29,7 @@ use Symfony\Component\Yaml\Yaml;
  * @package     Phrekyll\Runner
  * @author      Victor Farazdagi
  */
-class Command
-    implements \ArrayAccess
+class Command implements \ArrayAccess
 {
     /**
      * Loaded command's data

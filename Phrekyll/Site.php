@@ -19,6 +19,7 @@
  */
 
 namespace Phrekyll;
+
 use Phrekyll\Has;
 
 /**
@@ -28,12 +29,11 @@ use Phrekyll\Has;
  * @package     Phrekyll
  * @author      Victor Farazdagi
  */
-interface Site
-    extends
-        Has\InputDir,
-        Has\OutputDir,
-        Has\Outputter,
-        Has\SiteConfig
+interface Site extends
+    Has\InputDir,
+    Has\OutputDir,
+    Has\Outputter,
+    Has\SiteConfig
 {
     /**
      * Create static version of site.

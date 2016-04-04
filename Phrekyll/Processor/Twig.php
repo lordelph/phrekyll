@@ -19,8 +19,9 @@
  */
 
 namespace Phrekyll\Processor;
-use Phrekyll\Autoloader as Loader,
-    Phrekyll\Path\Project as ProjectPath;
+
+use Phrekyll\Autoloader as Loader;
+use Phrekyll\Path\Project as ProjectPath;
 
 /**
  * Twig templates processor
@@ -29,9 +30,7 @@ use Phrekyll\Autoloader as Loader,
  * @package     Phrekyll\Processor
  * @author      Victor Farazdagi
  */
-class Twig
-    extends Base
-    implements \Phrekyll\Processor
+class Twig extends Base implements \Phrekyll\Processor
 {
     /**
      * Reference to twig engine environment object
@@ -90,7 +89,9 @@ class Twig
     {
         if ($reset === true || null === $this->twig) {
             $this->twig = new \Twig_Environment(
-                $this->getLoader(), $this->getConfig());
+                $this->getLoader(),
+                $this->getConfig()
+            );
             $this->twig->removeExtension('escaper');
         }
 
@@ -124,5 +125,4 @@ class Twig
 
         return $chain;
     }
-
 }

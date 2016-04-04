@@ -19,9 +19,10 @@
  */
 
 namespace Phrekyll\Runner\CommandLine\Callback;
-use Phrekyll\Outputter\Console\Color,
-    Symfony\Component\Yaml\Yaml,
-    Phrekyll\Runner\CommandLine;
+
+use Phrekyll\Outputter\Console\Color;
+use Symfony\Component\Yaml\Yaml;
+use Phrekyll\Runner\CommandLine;
 
 /**
  * Extended help messages
@@ -30,9 +31,7 @@ use Phrekyll\Outputter\Console\Color,
  * @package     Phrekyll\Runner\CommandLine
  * @author      Victor Farazdagi
  */
-class Help
-    extends Base
-    implements CommandLine\Callback
+class Help extends Base implements CommandLine\Callback
 {
     /**
      * Executes the callback action

@@ -130,5 +130,6 @@ class Autoloader
     }
 
     private function __clone()
-    {}
+    {
+    }
 }

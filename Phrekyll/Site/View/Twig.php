@@ -19,9 +19,10 @@
  */
 
 namespace Phrekyll\Site\View;
-use Phrekyll\Site,
-    Phrekyll\Site\View\OutputPath\Entry as OutputFile,
-    Phrekyll\Processor\Twig as Processor;
+
+use Phrekyll\Site;
+use Phrekyll\Site\View\OutputPath\Entry as OutputFile;
+use Phrekyll\Processor\Twig as Processor;
 
 /**
  * Twig View
@@ -30,9 +31,7 @@ use Phrekyll\Site,
  * @package     Phrekyll\Site\View
  * @author      Victor Farazdagi
  */
-class Twig
-    extends Base
-    implements Site\View
+class Twig extends Base implements Site\View
 {
     /**
      * Initialize view

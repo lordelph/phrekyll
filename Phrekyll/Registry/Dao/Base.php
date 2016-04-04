@@ -20,8 +20,9 @@
  */
 
 namespace Phrekyll\Registry\Dao;
-use Phrekyll\Registry\Dao,
-    Phrekyll\Path\Project as ProjectPath;
+
+use Phrekyll\Registry\Dao;
+use Phrekyll\Path\Project as ProjectPath;
 
 /**
  * Base implementaion of Registry DAO.
@@ -31,8 +32,7 @@ use Phrekyll\Registry\Dao,
  * @subpackage  Dao
  * @author      Victor Farazdagi
  */
-abstract class Base
-    implements Dao
+abstract class Base implements Dao
 {
     /**
      * Registry container
@@ -135,5 +135,4 @@ abstract class Base
     {
         return $this->outputFile;
     }
-
 }

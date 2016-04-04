@@ -19,6 +19,7 @@
  */
 
 namespace Phrekyll\Runner\CommandLine;
+
 use Phrekyll\Has;
 
 /**
@@ -28,9 +29,9 @@ use Phrekyll\Has;
  * @package     Phrekyll\Runner\CommandLine\Callback
  * @author      Victor Farazdagi
  */
-interface Callback
-    extends Has\Config,
-            Has\Outputter
+interface Callback extends
+    Has\Config,
+    Has\Outputter
 {
     /**
      * Executes the callback action

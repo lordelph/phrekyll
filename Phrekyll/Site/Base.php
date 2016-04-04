@@ -19,9 +19,10 @@
  */
 
 namespace Phrekyll\Site;
-use Phrekyll\Site\View,
-    Phrekyll\Outputter\DefaultOutputter as Outputter,
-    Symfony\Component\Yaml\Yaml;
+
+use Phrekyll\Site\View;
+use Phrekyll\Outputter\DefaultOutputter as Outputter;
+use Symfony\Component\Yaml\Yaml;
 
 /**
  * Base implementation of Phrekyll Site
@@ -30,8 +31,7 @@ use Phrekyll\Site\View,
  * @package     Phrekyll\Site
  * @author      Victor Farazdagi
  */
-abstract class Base
-    implements \Phrekyll\Site
+abstract class Base implements \Phrekyll\Site
 {
     /**
      * List of views to process
@@ -231,7 +231,11 @@ abstract class Base
             foreach ($it as $item) {
                 $baseName = $item->getBaseName();
                 if (isset($config['skip'])) {
-                    $baseName = preg_replace($config['skip'], array_fill(0, count($config['skip']), $skipToken), $baseName);
+                    $baseName = preg_replace(
+                        $config['skip'],
+                        array_fill(0, count($config['skip']), $skipToken),
+                        $baseName
+                    );
                     if (strpos($baseName, $skipToken) !== false) {
                         continue;
                     }
@@ -275,5 +279,4 @@ abstract class Base
 
         return $dir;
     }
-
 }

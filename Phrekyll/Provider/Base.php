@@ -19,6 +19,7 @@
  */
 
 namespace Phrekyll\Provider;
+
 use Phrekyll\Provider;
 
 /**
@@ -28,8 +29,7 @@ use Phrekyll\Provider;
  * @package     Phrekyll\Provider
  * @author      Victor Farazdagi
  */
-abstract class Base
-    implements Provider
+abstract class Base implements Provider
 {
     /**
      * Engine environment configuration
@@ -99,5 +99,4 @@ abstract class Base
     {
         return $this->projectPath;
     }
-
 }

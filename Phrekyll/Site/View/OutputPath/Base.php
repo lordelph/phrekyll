@@ -19,6 +19,7 @@
  */
 
 namespace Phrekyll\Site\View\OutputPath;
+
 use Phrekyll\Site\View;
 
 /**
@@ -28,8 +29,7 @@ use Phrekyll\Site\View;
  * @package     Phrekyll\Site\View
  * @author      Victor Farazdagi
  */
-abstract class Base
-    implements View\OutputPath
+abstract class Base implements View\OutputPath
 {
     /**
      * Reference to \Phrekyll\Site\View object

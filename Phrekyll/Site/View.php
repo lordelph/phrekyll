@@ -19,6 +19,7 @@
  */
 
 namespace Phrekyll\Site;
+
 use Phrekyll\Has;
 
 /**
@@ -30,17 +31,16 @@ use Phrekyll\Has;
  * @package     Phrekyll\Site
  * @author      Victor Farazdagi
  */
-interface View
-    extends
-        Has\SiteConfig,
-        Has\InputRootDir,
-        Has\InputFile,
-        Has\OutputFile,
-        Has\OutputDir,
-        Has\Param,
-        Has\Processors,
-        Has\FrontMatter,
-        Has\Template
+interface View extends
+    Has\SiteConfig,
+    Has\InputRootDir,
+    Has\InputFile,
+    Has\OutputFile,
+    Has\OutputDir,
+    Has\Param,
+    Has\Processors,
+    Has\FrontMatter,
+    Has\Template
 {
 
     /**

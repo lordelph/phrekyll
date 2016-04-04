@@ -19,8 +19,9 @@
  */
 
 namespace Phrekyll\Registry;
-use Phrekyll\Registry\Has,
-    Phrekyll\Registry\Dao\Serialized as DefaultDao;
+
+use Phrekyll\Registry\Has;
+use Phrekyll\Registry\Dao\Serialized as DefaultDao;
 
 /**
  * Phrekyll registry container
@@ -29,11 +30,11 @@ use Phrekyll\Registry\Has,
  * @package     Phrekyll\Registry
  * @author      Victor Farazdagi
  */
-class Container
-    implements \Serializable,
-               \ArrayAccess,
-               Has\Dao,
-               Has\Values
+class Container implements
+    \Serializable,
+    \ArrayAccess,
+    Has\Dao,
+    Has\Values
 {
     /**
      * @var \Phrekyll\Registry\Dao
@@ -69,7 +70,8 @@ class Container
      * @return void
      */
     public function init()
-    {}
+    {
+    }
 
     /**
      * Persist current instance

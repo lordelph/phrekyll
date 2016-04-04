@@ -19,9 +19,10 @@
  */
 
 namespace Phrekyll\Runner\CommandLine\Callback;
-use Phrekyll\Outputter\Console\Color,
-    Symfony\Component\Yaml\Yaml,
-    Phrekyll\Runner\CommandLine;
+
+use Phrekyll\Outputter\Console\Color;
+use Symfony\Component\Yaml\Yaml;
+use Phrekyll\Runner\CommandLine;
 
 /**
  * phrekyll clobber command
@@ -30,9 +31,7 @@ use Phrekyll\Outputter\Console\Color,
  * @package     Phrekyll\Runner\CommandLine
  * @author      Victor Farazdagi
  */
-class Clobber
-    extends Base
-    implements CommandLine\Callback
+class Clobber extends Base implements CommandLine\Callback
 {
     /**
      * Executes the callback action
@@ -65,7 +64,8 @@ class Clobber
         $this->out("\nLocated project folder: {$path}");
         $this->out(
             "Project folder is to be removed.\n" .
-            "This operation %rCAN NOT%n be undone.\n");
+            "This operation %rCAN NOT%n be undone.\n"
+        );
 
         if (!$path || is_dir($path) === false) {
             throw new \RuntimeException("No project found at \"{$path}\"");

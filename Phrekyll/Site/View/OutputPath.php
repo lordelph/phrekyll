@@ -19,6 +19,7 @@
  */
 
 namespace Phrekyll\Site\View;
+
 use Phrekyll\Has;
 
 /**
@@ -28,9 +29,8 @@ use Phrekyll\Has;
  * @package     Phrekyll\Site\View
  * @author      Victor Farazdagi
  */
-interface OutputPath
-    extends
-        Has\View
+interface OutputPath extends
+    Has\View
 {
     /**
      * Initialize path builder

@@ -19,6 +19,7 @@
  */
 
 namespace Phrekyll\Provider;
+
 use Phrekyll\Provider;
 
 /**
@@ -28,8 +29,7 @@ use Phrekyll\Provider;
  * @package     Phrekyll\Provider
  * @author      Victor Farazdagi
  */
-class LoadFromFile
-    extends Base
+class LoadFromFile extends Base
 {
     /**
      * Get generated content
@@ -48,5 +48,4 @@ class LoadFromFile
         }
         return file_get_contents($path);
     }
-
 }

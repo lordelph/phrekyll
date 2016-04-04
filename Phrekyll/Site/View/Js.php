@@ -19,9 +19,10 @@
  */
 
 namespace Phrekyll\Site\View;
-use Phrekyll\Site,
-    Phrekyll\Site\View\OutputPath\Script as OutputFile,
-    Phrekyll\Processor\Plain as Processor;
+
+use Phrekyll\Site;
+use Phrekyll\Site\View\OutputPath\Script as OutputFile;
+use Phrekyll\Processor\Plain as Processor;
 
 /**
  * JavaScript View
@@ -30,9 +31,7 @@ use Phrekyll\Site,
  * @package     Phrekyll\Site\View
  * @author      Victor Farazdagi
  */
-class Js
-    extends Base
-    implements Site\View
+class Js extends Base implements Site\View
 {
     /**
      * Initialize view
@@ -63,5 +62,4 @@ class Js
 
         return $this->outputFile;
     }
-
 }

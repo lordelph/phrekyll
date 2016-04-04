@@ -19,6 +19,7 @@
  */
 
 namespace Phrekyll\Outputter\Console;
+
 use Console_Color2 as ConsoleColorer;
 
 /**
@@ -57,7 +58,8 @@ class Color
      * Singleton. Cloning is explicitly disallowed.
      */
     private function __clone()
-    {}
+    {
+    }
 
     /**
      * Get instance of included Console_Color
@@ -153,5 +155,4 @@ class Color
             ->getConsoleColorer()
             ->strip($string);
     }
-
 }

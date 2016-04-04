@@ -19,6 +19,7 @@
  */
 
 namespace Phrekyll\Site;
+
 use Phrekyll\Site\View;
 
 /**
@@ -28,9 +29,7 @@ use Phrekyll\Site\View;
  * @package     Phrekyll\Site
  * @author      Walter Dal Mut
  */
-class PieceOfSite
-    extends DefaultSite
-    implements \Phrekyll\Site
+class PieceOfSite extends DefaultSite implements \Phrekyll\Site
 {
     private $single;
 
@@ -106,5 +105,4 @@ class PieceOfSite
 
         return $this;
     }
-
 }

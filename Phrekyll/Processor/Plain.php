@@ -27,9 +27,7 @@ namespace Phrekyll\Processor;
  * @package     Phrekyll\Processor
  * @author      Victor Farazdagi
  */
-class Plain
-    extends Base
-    implements \Phrekyll\Processor
+class Plain extends Base implements \Phrekyll\Processor
 {
     /**
      * If configuration options are passes then twig environment
@@ -40,7 +38,8 @@ class Plain
      * @return void
      */
     public function __construct($options = array())
-    {}
+    {
+    }
 
     /**
      * Parse the incoming template

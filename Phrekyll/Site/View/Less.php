@@ -19,9 +19,10 @@
  */
 
 namespace Phrekyll\Site\View;
-use Phrekyll\Site,
-    Phrekyll\Site\View\OutputPath\Style as OutputFile,
-    Phrekyll\Processor\Less as Processor;
+
+use Phrekyll\Site;
+use Phrekyll\Site\View\OutputPath\Style as OutputFile;
+use Phrekyll\Processor\Less as Processor;
 
 /**
  * LESS View
@@ -30,9 +31,7 @@ use Phrekyll\Site,
  * @package     Phrekyll\Site\View
  * @author      Victor Farazdagi
  */
-class Less
-    extends Base
-    implements Site\View
+class Less extends Base implements Site\View
 {
     /**
      * Initialize view
@@ -92,5 +91,4 @@ class Less
 
         return $this->outputFile;
     }
-
 }

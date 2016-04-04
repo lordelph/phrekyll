@@ -60,7 +60,10 @@ class Init extends Base implements CommandLine\Callback
 
         if (is_dir($path)) {
             $this->out(self::STATUS_FAIL . "Project directory '" . basename($path) . "' already exists..");
-            $this->out($this->pad(self::STATUS_FAIL) . "Type 'phrekyll help clobber' to get help on removing existing project.");
+            $this->out(
+                $this->pad(self::STATUS_FAIL) .
+                "Type 'phrekyll help clobber' to get help on removing existing project."
+            );
             return $this->out($this->getFooter());
         } else {
             if (!@mkdir($path)) {

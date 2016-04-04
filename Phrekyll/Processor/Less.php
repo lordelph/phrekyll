@@ -19,6 +19,7 @@
  */
 
 namespace Phrekyll\Processor;
+
 use Phrekyll\Autoloader as Loader;
 
 /**
@@ -28,9 +29,7 @@ use Phrekyll\Autoloader as Loader;
  * @package     Phrekyll\Processor
  * @author      Victor Farazdagi
  */
-class Less
-    extends Base
-    implements \Phrekyll\Processor
+class Less extends Base implements \Phrekyll\Processor
 {
     /**
      * Reference to LESS compiler

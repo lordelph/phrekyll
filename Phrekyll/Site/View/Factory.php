@@ -19,8 +19,9 @@
  */
 
 namespace Phrekyll\Site\View;
-use Symfony\Component\Yaml\Yaml,
-    Phrekyll\Has;
+
+use Symfony\Component\Yaml\Yaml;
+use Phrekyll\Has;
 
 /**
  * View producing factory
@@ -29,8 +30,7 @@ use Symfony\Component\Yaml\Yaml,
  * @package     Phrekyll\Site\View
  * @author      Victor Farazdagi
  */
-class Factory
-    implements Has\InputFile
+class Factory implements Has\InputFile
 {
     /**
      * Site\View\Html is default page type

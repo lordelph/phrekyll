@@ -19,6 +19,7 @@
  */
 
 namespace Phrekyll\Processor;
+
 use Netcarver\Textile\Parser as TextileParser;
 use Phrekyll\Autoloader as Loader;
 
@@ -29,9 +30,7 @@ use Phrekyll\Autoloader as Loader;
  * @package     Phrekyll\Processor
  * @author      Victor Farazdagi
  */
-class Textile
-    extends Base
-    implements \Phrekyll\Processor
+class Textile extends Base implements \Phrekyll\Processor
 {
     /**
      * Reference to processor class

@@ -20,10 +20,10 @@
 
 namespace Phrekyll\Runner\CommandLine\Callback;
 
-use Phrekyll\Outputter\Console\Color,
-    Symfony\Component\Yaml\Yaml,
-    Phrekyll\Runner\CommandLine,
-    Phrekyll\Site\PieceOfSite as Site;
+use Phrekyll\Outputter\Console\Color;
+use Symfony\Component\Yaml\Yaml;
+use Phrekyll\Runner\CommandLine;
+use Phrekyll\Site\PieceOfSite as Site;
 
 /**
  * phrekyll up command
@@ -32,9 +32,7 @@ use Phrekyll\Outputter\Console\Color,
  * @package     Phrekyll\Runner\CommandLine
  * @author      Walter Dal Mut
  */
-class Single
-    extends Base
-    implements CommandLine\Callback
+class Single extends Base implements CommandLine\Callback
 {
     /**
      * Executes the callback action
@@ -62,21 +60,24 @@ class Single
         $proceed = true;
         if (!is_dir($in)) {
             $this->out(
-                self::STATUS_FAIL . "Source directory '{$in}' not found.");
+                self::STATUS_FAIL . "Source directory '{$in}' not found."
+            );
             $proceed = false;
         } else {
             $this->out(self::STATUS_OK . "Source directory located: {$in}");
         }
         if (!is_dir($out)) {
             $this->out(
-                self::STATUS_FAIL . "Destination directory '{$out}' not found.");
+                self::STATUS_FAIL . "Destination directory '{$out}' not found."
+            );
             $proceed = false;
         } else {
             $this->out(self::STATUS_OK . "Destination directory located: {$out}");
         }
         if (!is_file($file)) {
             $this->out(
-                self::STATUS_FAIL . "Source file '{$file}' not found.");
+                self::STATUS_FAIL . "Source file '{$file}' not found."
+            );
             $proceed = false;
         } else {
             $this->out(self::STATUS_OK . "Source file located: {$file}");
@@ -121,4 +122,3 @@ class Single
         }
     }
 }
-

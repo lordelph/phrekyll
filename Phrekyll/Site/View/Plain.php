@@ -19,9 +19,10 @@
  */
 
 namespace Phrekyll\Site\View;
-use Phrekyll\Site,
-    Phrekyll\Site\View\OutputPath\Plain as OutputFile,
-    Phrekyll\Processor\Plain as Processor;
+
+use Phrekyll\Site;
+use Phrekyll\Site\View\OutputPath\Plain as OutputFile;
+use Phrekyll\Processor\Plain as Processor;
 
 /**
  * Plain View without any text transformations
@@ -30,9 +31,7 @@ use Phrekyll\Site,
  * @package     Phrekyll\Site\View
  * @author      Victor Farazdagi
  */
-class Plain
-    extends Base
-    implements Site\View
+class Plain extends Base implements Site\View
 {
     /**
      * Initialize view

@@ -19,6 +19,7 @@
  */
 
 namespace Phrekyll\Path;
+
 use Phrekyll\Path;
 
 /**
@@ -28,9 +29,7 @@ use Phrekyll\Path;
  * @package     Phrekyll\Path
  * @author      Victor Farazdagi
  */
-class Project
-    extends Base
-    implements Path
+class Project extends Base implements Path
 {
     /**
      * Get calculated path

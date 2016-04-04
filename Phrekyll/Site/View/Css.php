@@ -19,9 +19,10 @@
  */
 
 namespace Phrekyll\Site\View;
-use Phrekyll\Site,
-    Phrekyll\Site\View\OutputPath\Style as OutputFile,
-    Phrekyll\Processor\Plain as Processor;
+
+use Phrekyll\Site;
+use Phrekyll\Site\View\OutputPath\Style as OutputFile;
+use Phrekyll\Processor\Plain as Processor;
 
 /**
  * CSS View
@@ -30,9 +31,7 @@ use Phrekyll\Site,
  * @package     Phrekyll\Site\View
  * @author      Victor Farazdagi
  */
-class Css
-    extends Base
-    implements Site\View
+class Css extends Base implements Site\View
 {
     /**
      * Initialize view

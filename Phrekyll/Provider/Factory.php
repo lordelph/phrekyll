@@ -19,6 +19,7 @@
  */
 
 namespace Phrekyll\Provider;
+
 use Phrekyll\Has;
 
 /**
@@ -52,5 +53,4 @@ class Factory
         $object->setConfig($data);
         return $object;
     }
-
 }

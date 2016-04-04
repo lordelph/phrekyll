@@ -27,8 +27,7 @@ namespace Phrekyll\Processor;
  * @package     Phrekyll\Processor
  * @author      Victor Farazdagi
  */
-abstract class Base
-    implements \Phrekyll\Processor
+abstract class Base implements \Phrekyll\Processor
 {
     /**
      * Engine environment configuration

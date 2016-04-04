@@ -19,9 +19,10 @@
  */
 
 namespace Phrekyll\Runner\CommandLine;
-use Symfony\Component\Yaml\Yaml,
-    Console_CommandLine as CommandParser,
-    Phrekyll\Runner\CommandLine;
+
+use Symfony\Component\Yaml\Yaml;
+use Console_CommandLine as CommandParser;
+use Phrekyll\Runner\CommandLine;
 
 /**
  * Completely loaded main phrekyll command (with subcommands loaded as well)
@@ -31,8 +32,7 @@ use Symfony\Component\Yaml\Yaml,
  * @package     Phrekyll\Runner\CommandLine
  * @author      Victor Farazdagi
  */
-class Parser
-    extends \Console_CommandLine
+class Parser extends \Console_CommandLine
 {
     /**
      * Contents of phrekyll.yml is loaded into this attribute on startup
@@ -73,7 +73,6 @@ class Parser
                             ->setPath($paths['configs'] . 'commands');
         foreach ($commands as $name => $data) {
             $this->registerCommand($name, $data);
-
         }
 
         return $this;
@@ -98,8 +97,11 @@ class Parser
      * @return void
      */
     private function registerCommand(
-        $name, $data, \Console_CommandLine_Command $parent = null)
-    {
+        $name,
+        $data,
+        \Console_CommandLine_Command $parent = null
+    ) {
+    
         $command = isset($data['command']) ? $data['command'] : $data;
         if (null === $parent) {
             $cmd = $this->addCommand($name, $command);

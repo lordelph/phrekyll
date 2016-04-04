@@ -19,8 +19,9 @@
  */
 
 namespace Phrekyll\Runner\CommandLine;
-use Phrekyll\Has,
-    Phrekyll\Outputter\PlainOutputter as Outputter;
+
+use Phrekyll\Has;
+use Phrekyll\Outputter\PlainOutputter as Outputter;
 
 /**
  * Command-line input reader
@@ -29,8 +30,7 @@ use Phrekyll\Has,
  * @package     Phrekyll\Runner\CommandLine
  * @author      Victor Farazdagi
  */
-class Reader
-    implements Has\Outputter
+class Reader implements Has\Outputter
 {
     /**
      * @var \Phrekyll\Outputter
@@ -54,10 +54,10 @@ class Reader
     {
         // initilize input resource
         if (null === $handle) {
-            if(defined("STDIN")) {
+            if (defined("STDIN")) {
                 $handle = STDIN;
             } else {
-                $handle = fopen('php://stdin','r');
+                $handle = fopen('php://stdin', 'r');
             }
         }
         if (null === $outputter) {
@@ -70,7 +70,7 @@ class Reader
 
     public function __destruct()
     {
-        if(defined('STDIN') === false) {
+        if (defined('STDIN') === false) {
             fclose($this->handle);
         }
     }
@@ -138,4 +138,3 @@ class Reader
         return $this->handle;
     }
 }
-

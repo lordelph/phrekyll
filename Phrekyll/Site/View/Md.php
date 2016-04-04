@@ -19,6 +19,7 @@
  */
 
 namespace Phrekyll\Site\View;
+
 use Phrekyll\Site;
 
 /**
@@ -27,6 +28,7 @@ use Phrekyll\Site;
  * @package     Phrekyll\Site\View
  * @author      Osman Ungur
  */
-class Md extends Markdown implements Site\View {
+class Md extends Markdown implements Site\View
+{
 
 }

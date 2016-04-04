@@ -20,6 +20,7 @@
  */
 
 namespace Phrekyll\Registry\Dao;
+
 use Phrekyll\Registry\Dao;
 
 /**
@@ -30,9 +31,7 @@ use Phrekyll\Registry\Dao;
  * @subpackage  Dao
  * @author      Victor Farazdagi
  */
-class Serialized
-    extends Base
-    implements Dao
+class Serialized extends Base implements Dao
 {
     /**
      * Save current registry container

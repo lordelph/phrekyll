@@ -19,9 +19,10 @@
  */
 
 namespace Phrekyll\Site\View;
-use Phrekyll\Site,
-    Phrekyll\Site\View\OutputPath\Entry as OutputFile,
-    Phrekyll\Processor\Textile as Processor;
+
+use Phrekyll\Site;
+use Phrekyll\Site\View\OutputPath\Entry as OutputFile;
+use Phrekyll\Processor\Textile as Processor;
 
 /**
  * Textile View
@@ -30,9 +31,7 @@ use Phrekyll\Site,
  * @package     Phrekyll\Site\View
  * @author      Victor Farazdagi
  */
-class Textile
-    extends Base
-    implements Site\View
+class Textile extends Base implements Site\View
 {
     /**
      * Initialize view

@@ -19,9 +19,10 @@
  */
 
 namespace Phrekyll\Site\View;
-use Phrekyll\Site,
-    Phrekyll\Site\View\OutputPath\Style as OutputFile,
-    Phrekyll\Processor\Scss as Processor;
+
+use Phrekyll\Site;
+use Phrekyll\Site\View\OutputPath\Style as OutputFile;
+use Phrekyll\Processor\Scss as Processor;
 
 /**
  * SCSS View
@@ -30,9 +31,7 @@ use Phrekyll\Site,
  * @package     Phrekyll\Site\View
  * @author      Victor Farazdagi
  */
-class Scss
-    extends Base
-    implements Site\View
+class Scss extends Base implements Site\View
 {
     /**
      * Initialize view
@@ -59,5 +58,4 @@ class Scss
         $path = new OutputFile($this);
         return $path->get();
     }
-
 }

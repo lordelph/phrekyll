@@ -19,8 +19,9 @@
  */
 
 namespace Phrekyll\Registry;
-use Phrekyll,
-    Phrekyll\Registry\Has;
+
+use Phrekyll;
+use Phrekyll\Registry\Has;
 
 /**
  * Phrekyll registry data access layer
@@ -32,10 +33,10 @@ use Phrekyll,
  * @package     Phrekyll\Registry
  * @author      Victor Farazdagi
  */
-interface Dao
-    extends Has\Container,
-            Phrekyll\Has\OutputFile,
-            Phrekyll\Has\ProjectPath
+interface Dao extends
+    Has\Container,
+    Phrekyll\Has\OutputFile,
+    Phrekyll\Has\ProjectPath
 {
     /**
      * Initialize DAO object

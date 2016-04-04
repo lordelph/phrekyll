@@ -19,6 +19,7 @@
  */
 
 namespace Phrekyll\Site\View\OutputPath\Entry;
+
 use Phrekyll\Site\View;
 
 /**
@@ -28,8 +29,7 @@ use Phrekyll\Site\View;
  * @package     Phrekyll\Site\View
  * @author      Victor Farazdagi
  */
-class Parametrized
-    extends View\OutputPath\Base
+class Parametrized extends View\OutputPath\Base
 {
     /**
      * Get calculated path
@@ -55,7 +55,7 @@ class Parametrized
 
         if (substr($path, -1) === '/') {
             $path .= 'index.html';
-        } else if (is_null($permalink) && substr($path, -5) !== '.html') {
+        } elseif (is_null($permalink) && substr($path, -5) !== '.html') {
             $path .= '.html';
         }
 

@@ -19,6 +19,7 @@
  */
 
 namespace Phrekyll\Site;
+
 use Phrekyll\Site\View;
 
 /**
@@ -28,9 +29,7 @@ use Phrekyll\Site\View;
  * @package     Phrekyll\Site
  * @author      Victor Farazdagi
  */
-class DefaultSite
-    extends Base
-    implements \Phrekyll\Site
+class DefaultSite extends Base implements \Phrekyll\Site
 {
     /**
      * Create static version of site.
@@ -126,7 +125,7 @@ class DefaultSite
      * @param \SplFileInfo $outDir
      * @param string[] $skip Array of regexes
      */
-    private function tryToCopyFolder($folder, $inDir, $outDir, $skip=array())
+    private function tryToCopyFolder($folder, $inDir, $outDir, $skip = array())
     {
         // skip if not a folder
         if (!$folder->isDir()) {
@@ -154,7 +153,7 @@ class DefaultSite
      * @param string[] $skip Array of regexes
      * @throws \RuntimeException
      */
-    private function tryToCopyFile($file, $inDir, $outDir, $skip=array())
+    private function tryToCopyFile($file, $inDir, $outDir, $skip = array())
     {
         // collect info
         $inputFile = $file->getRealPath();
@@ -178,7 +177,9 @@ class DefaultSite
 
         // sanity check -- REALLY not supposed to happen
         if (strpos($inputFile, $inputDir) !== 0) {
-            throw new \RuntimeException(sprintf('File "%s" is not a child of input folder "%s"', $inputFile, $inputDir));
+            throw new \RuntimeException(
+                sprintf('File "%s" is not a child of input folder "%s"', $inputFile, $inputDir)
+            );
         }
 
         $relativePath = substr($inputFile, strlen($inputDir)+1);

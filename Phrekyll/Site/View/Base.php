@@ -19,12 +19,13 @@
  */
 
 namespace Phrekyll\Site\View;
-use Symfony\Component\Yaml\Yaml,
-    Phrekyll\Path\Project as ProjectPath,
-    Phrekyll\Site\View\Factory as ViewFactory,
-    Phrekyll\Provider\Factory as ProviderFactory,
-    Phrekyll\Site\View\OutputPath\Entry as OutputFile,
-    Phrekyll\Autoloader as Loader;
+
+use Symfony\Component\Yaml\Yaml;
+use Phrekyll\Path\Project as ProjectPath;
+use Phrekyll\Site\View\Factory as ViewFactory;
+use Phrekyll\Provider\Factory as ProviderFactory;
+use Phrekyll\Site\View\OutputPath\Entry as OutputFile;
+use Phrekyll\Autoloader as Loader;
 
 /**
  * Base implementation of Phrekyll view
@@ -33,8 +34,7 @@ use Symfony\Component\Yaml\Yaml,
  * @package     Phrekyll\Site\View
  * @author      Victor Farazdagi
  */
-abstract class Base
-    implements \Phrekyll\Site\View
+abstract class Base implements \Phrekyll\Site\View
 {
     /**
      * Input root dir
@@ -137,7 +137,9 @@ abstract class Base
             file_put_contents($outputFile, $out);
         } else {
             throw new \RuntimeException(sprintf(
-                'Output path "%s" is directory.', $outputFile));
+                'Output path "%s" is directory.',
+                $outputFile
+            ));
         }
 
         return $out;
@@ -168,7 +170,6 @@ abstract class Base
                 $vars['page']['providers'][$varname] = $providedContent;
                 $vars['this']['providers'][$varname] = $providedContent;
             }
-
         }
 
         // convert view into static representation
@@ -361,7 +362,7 @@ abstract class Base
      */
     public function getParams($param = null, $default = array())
     {
-    	$params = array();
+        $params = array();
         $params['page'] = $this->getFrontMatter();
         $params['site'] = $this->getSiteConfig();
         $params['phr'] = $this->getAppConfig();
@@ -370,7 +371,7 @@ abstract class Base
         $inputFile = $this->getInputFile();
         $pos = strpos($inputFile, '/entries');
         if (false !== $pos) {
-        	$params['current']['phr_template'] = substr($this->getInputFile(), $pos + 8 + 1);
+            $params['current']['phr_template'] = substr($this->getInputFile(), $pos + 8 + 1);
         }
 
         // also create merged configuration
