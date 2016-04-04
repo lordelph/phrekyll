@@ -18,8 +18,8 @@
             <metadata>
                 <element name="version" value="0.5.6" />
                 <element name="authors">
-                    <element name="Walter Dal Mut">
-                        <element name="email" value="walter.dalmut@gmail.com" />
+                     <element name="Paul Dixon">
+                        <element name="email" value="paul@elphin.com" />
                     </element>
                 </element>
             </metadata>
