@@ -19,10 +19,11 @@
  */
 
 namespace Phrozn\Runner;
-use Symfony\Component\Yaml\Yaml,
-    Phrozn\Runner\CommandLine\Parser,
-    Phrozn\Runner\CommandLine\Command,
-    Phrozn\Outputter\DefaultOutputter as Outputter;
+
+use Symfony\Component\Yaml\Yaml;
+use Phrozn\Runner\CommandLine\Parser;
+use Phrozn\Runner\CommandLine\Command;
+use Phrozn\Outputter\DefaultOutputter as Outputter;
 
 /**
  * CLI version of framework invoker.
@@ -31,8 +32,7 @@ use Symfony\Component\Yaml\Yaml,
  * @package     Phrozn\Runner
  * @author      Victor Farazdagi
  */
-class CommandLine
-    implements \Phrozn\Runner
+class CommandLine implements \Phrozn\Runner
 {
     /**
      * System paths
@@ -60,6 +60,11 @@ class CommandLine
     private $loader;
 
     /**
+     * @var \Phrozn\Outputter
+     */
+    private $outputter;
+
+    /**
      * Create runner
      *
      * @param \Phrozn\Autoloader $loader Instance of auto-loader
@@ -69,9 +74,11 @@ class CommandLine
     {
         $this->paths = $loader->getPaths();
         $this->loader = $loader;
+        $this->outputter = new Outputter;
 
         // load main config
-        $this->config = Yaml::parse($this->paths['configs'] . 'phrozn.yml');
+        $yaml=file_get_contents($this->paths['configs'] . 'phrozn.yml');
+        $this->config = Yaml::parse($yaml);
     }
 
     /**
@@ -93,6 +100,14 @@ class CommandLine
         }
 
         $this->parse();
+    }
+
+    /**
+     * Inject alternative outputter here, useful for tests
+     */
+    public function setOutputter(\Phrozn\Outputter $outputter)
+    {
+        $this->outputter=$outputter;
     }
 
     /**
@@ -132,7 +147,7 @@ class CommandLine
         }
 
         if ($commandName === false && $optionSet === false && $argumentSet === false) {
-            $this->parser->outputter->stdout("Type 'phrozn help' for usage.\n");
+            $this->outputter->stdout("Type 'phrozn help' for usage.\n");
         }
     }
 
@@ -148,7 +163,7 @@ class CommandLine
         $runner = new $class;
         $data['paths'] = $this->paths; // inject paths
         $runner
-            ->setOutputter(new Outputter())
+            ->setOutputter($this->outputter)
             ->setParseResult($this->result)
             ->setConfig($data);
         $callback = array($runner, $method);
