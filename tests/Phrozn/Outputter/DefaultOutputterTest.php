@@ -33,46 +33,24 @@ class DefaultOutputterTest
 
     public function testStdOut()
     {
-        $outputter = new Outputter();
-        ob_start(array($this, 'setOutput'));
-        $outputter->stdout('sending output', '');
-        $out = trim(ob_get_clean());
+        $fp = tmpfile();
 
-        $this->assertSame('sending output', trim($this->out));
+        $outputter = new Outputter($fp, null);
+        $outputter->stdout('sending output', '');
+
+        rewind($fp);
+        $contents = fread($fp, 8096);
+
+        fclose($fp);
+
+        $this->assertSame('sending output', trim($contents));
     }
 
     public function testStdErr()
     {
-        $outputter = new Outputter();
-        ob_start(array($this, 'setOutput'));
-        $outputter->stderr('sending output', '');
-        $out = trim(ob_get_clean());
-
-        $this->assertSame('sending output', trim($this->out));
-    }
-
-    public function testStdOutWithResource()
-    {
         $fp = tmpfile();
-        define('STDOUT', $fp);
 
-        $outputter = new Outputter();
-        $outputter->stdout('sending output', '');
-
-        rewind($fp);
-        $contents = fread($fp, 8096);
-
-        fclose($fp);
-
-        $this->assertSame('sending output', trim($contents));
-    }
-
-    public function testStdErrWithResource()
-    {
-        $fp = tmpfile();
-        define('STDERR', $fp);
-
-        $outputter = new Outputter();
+        $outputter = new Outputter(null, $fp);
         $outputter->stderr('sending output', '');
 
         rewind($fp);
@@ -81,13 +59,5 @@ class DefaultOutputterTest
         fclose($fp);
 
         $this->assertSame('sending output', trim($contents));
-    }
-
-    public function setOutput($out)
-    {
-        if ($out) {
-            $this->out = $out;
-        }
-        return ''; // silence
     }
 }

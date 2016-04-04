@@ -31,6 +31,17 @@ use Phrozn\Outputter\Console\Color;
 class DefaultOutputter
     implements \Phrozn\Outputter
 {
+    public function __construct($stdout=null, $stderr=null)
+    {
+        $this->stdout=defined('STDOUT') ? STDOUT : null;
+        if (!is_null($stdout)) {
+            $this->stdout=$stdout;
+        }
+        $this->stderr=defined('STDERR') ? STDERR : null;
+        if (!is_null($stderr)) {
+            $this->stderr=$stderr;
+        }
+    }
     /**
      * Writes the message $msg to STDOUT.
      *
@@ -42,6 +53,13 @@ class DefaultOutputter
     public function stdout($msg, $status = self::STATUS_OK)
     {
         $msg = Color::convert($status . $msg . "\n");
+
+        if ($this->stdout){
+            fwrite($this->stdout, $msg);
+        } else {
+            echo $msg;
+        }
+/*
         if (defined('STDOUT')) {
             fwrite(STDOUT, $msg);
         } else {
@@ -49,7 +67,7 @@ class DefaultOutputter
             if (count(\ob_get_status()) !== 0) {
                 ob_flush();
             }
-        }
+        }*/
         return $this;
     }
 
@@ -64,6 +82,13 @@ class DefaultOutputter
     public function stderr($msg, $status = self::STATUS_FAIL)
     {
         $msg = Color::convert($status . $msg . "\n");
+
+        if ($this->stderr){
+            fwrite($this->stderr, $msg);
+        } else {
+            echo $msg;
+        }
+        /*
         if (defined('STDERR')) {
             fwrite(STDERR, $msg);
         } else {
@@ -72,6 +97,7 @@ class DefaultOutputter
                 ob_flush();
             }
         }
+        */
         return $this;
     }
 }
