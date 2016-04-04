@@ -19,9 +19,10 @@
  */
 
 namespace Phrozn\Runner\CommandLine\Callback;
-use Console_Color as Color,
-    Symfony\Component\Yaml\Yaml,
-    Phrozn\Runner\CommandLine;
+
+use Console_Color as Color;
+use Symfony\Component\Yaml\Yaml;
+use Phrozn\Runner\CommandLine;
 
 /**
  * phrozn init command
@@ -30,9 +31,7 @@ use Console_Color as Color,
  * @package     Phrozn\Runner\CommandLine
  * @author      Victor Farazdagi
  */
-class Init
-    extends Base
-    implements CommandLine\Callback
+class Init extends Base implements CommandLine\Callback
 {
     /**
      * Executes the callback action
@@ -55,7 +54,6 @@ class Init
             $path = \getcwd() . '/./' . $path;
         }
 
-        ob_start();
         $this->out($this->getHeader());
         $this->out("Initializing new project");
         $this->out("\n  Project path: {$path}");
@@ -126,5 +124,4 @@ class Init
         $dir->close();
         return true;
     }
-
 }
