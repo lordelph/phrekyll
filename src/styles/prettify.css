@@ -1,76 +1,34 @@
-/**
- * see http://code.google.com/p/google-code-prettify/source/browse/trunk/styles/desert.css
- */
+/* desert scheme ported from vim to google prettify */
+pre.prettyprint { display: block; background-color: #333 }
+pre .nocode { background-color: none; color: #000 }
+pre .str { color: #ffa0a0 } /* string  - pink */
+pre .kwd { color: #f0e68c; font-weight: bold }
+pre .com { color: #87ceeb } /* comment - skyblue */
+pre .typ { color: #98fb98 } /* type    - lightgreen */
+pre .lit { color: #cd5c5c } /* literal - darkred */
+pre .pun { color: #fff }    /* punctuation */
+pre .pln { color: #fff }    /* plaintext */
+pre .tag { color: #f0e68c; font-weight: bold } /* html/xml tag    - lightyellow */
+pre .atn { color: #bdb76b; font-weight: bold } /* attribute name  - khaki */
+pre .atv { color: #ffa0a0 } /* attribute value - pink */
+pre .dec { color: #98fb98 } /* decimal         - lightgreen */
 
-pre .keyword,
-pre .tag,
-pre .css .class,
-pre .css .id
-{
-    color: #f0e68c; font-weight: bold;
-}
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums { margin-top: 0; margin-bottom: 0; color: #AEAEAE } /* IE indents via margin-left */
+li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8 { list-style-type: none }
+/* Alternate shading for lines */
+li.L1,li.L3,li.L5,li.L7,li.L9 { }
 
-pre .number,
-pre .date{
-    color:#8cd0d3
-}
-pre .dos .envvar,
-pre .dos .stream,
-pre .variable,
-pre .apache .sqbracket{
-    color:#ffa0a0
-}
-
-pre .dos .flow,
-pre .diff .change,
-pre .python .exception,
-pre .python .built_in,
-pre .literal,
-pre .tex .special{color:#cd5c5c}
-
-pre .diff .chunk,
-pre .ruby .subst{color:#8f8f8f}
-
-pre .dos .keyword,
-pre .python .decorator,
-pre .class .title,
-pre .function .title,
-pre .ini .title,
-pre .diff .header,
-pre .ruby .class .parent,
-pre .apache .tag,
-pre .nginx .built_in,
-pre .tex .command{color:#efef8f}
-
-pre .diff .deletion,
-pre .string,
-pre .tag .value,
-pre .preprocessor,
-pre .built_in,
-pre .sql .aggregate,
-pre .javadoc,
-pre .css .rules .value,
-pre .attr_selector,
-pre .pseudo,
-pre .apache .cbracket,
-pre .tex .formula{color:#98fb98}
-
-pre .shebang,
-pre .diff .addition,
-pre .comment,
-pre .java .annotation,
-pre .template_comment,
-pre .pi,
-pre .doctype{color:#87ceeb}
-
-pre .command 
-{color:#87ceeb}
-
-pre .phpdoc {
-color:#afd9ea;
-    font-weight: bold;
-}
-
-pre .cli-comment {
-    color: #E8DBB4;
+@media print {
+  pre.prettyprint { background-color: none }
+  pre .str, code .str { color: #060 }
+  pre .kwd, code .kwd { color: #006; font-weight: bold }
+  pre .com, code .com { color: #600; font-style: italic }
+  pre .typ, code .typ { color: #404; font-weight: bold }
+  pre .lit, code .lit { color: #044 }
+  pre .pun, code .pun { color: #440 }
+  pre .pln, code .pln { color: #000 }
+  pre .tag, code .tag { color: #006; font-weight: bold }
+  pre .atn, code .atn { color: #404 }
+  pre .atv, code .atv { color: #060 }
 }

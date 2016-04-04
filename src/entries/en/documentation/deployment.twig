@@ -4,7 +4,7 @@ permalink: /en/documentation/deployment/
 <h1 id="main">Project Deployment</h1>
 <div class="toc-box">&nbsp;</div>
 
-<p>Since Phrozn generates simple HTML pages as output, pushing project to your web host is <i>trivial</i>:<br />
+<p>Since Phrekyll generates simple HTML pages as output, pushing project to your web host is <i>trivial</i>:<br />
 All you need to do is to copy over generated files.</p>
 
 <p>
@@ -12,7 +12,7 @@ Depending on your needs, there are several ways to automate this process.
 </p>
 
 <h2 id="manual" class="in-toc">Manual Deployment</h2>
-<p>Supposing that Phrozn directory is controlled by Git and you have shell access to production server, most
+<p>Supposing that Phrekyll directory is controlled by Git and you have shell access to production server, most
 straight-forward approach will be:</p>
 <p>
 <ol>
@@ -27,7 +27,7 @@ straight-forward approach will be:</p>
 </p>
 <p>
 Alternatively, you can <code>phr up</code> directly on production server (if you have full control over it, so that
-Phrozn can be installed there).
+Phrekyll can be installed there).
 </p>
 
 {#
@@ -47,7 +47,7 @@ See <a href="/en/documentation/articles/deploy-using-git-post-update/">detailed 
 #}
 
 <h2 id="rsync" class="in-toc">Synchronize using rsync</h2>
-<p>Again, since Phrozn site is just a collection of static pages, you can use <code>rsync</code>. Assuming that
+<p>Again, since Phrekyll site is just a collection of static pages, you can use <code>rsync</code>. Assuming that
 generated site lives in <code>public_html</code> on your developer box, here is simple shell script to push files to
 remote production server:</p>
 <pre>

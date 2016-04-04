@@ -1,9 +1,9 @@
 <?php
-namespace PhroznPlugin\Provider;
+namespace PhrekyllPlugin\Provider;
 
 class Primarchs
-    extends \Phrozn\Provider\Base
-    implements \Phrozn\Provider 
+    extends \Phrekyll\Provider\Base
+    implements \Phrekyll\Provider
 {
     private $primarchs = array(
         array("Lion El'Jonson",           "Dark Angels",                  "Loyal"),
@@ -31,9 +31,9 @@ class Primarchs
         // get reference to configuration object (it holds passed vars, if any)
         $config = $this->getConfig();
 
-        // form list, replacing numeric keys with associative 
+        // form list, replacing numeric keys with associative
         // you can get rid of this by updating original array
-        $primarchs = array_map(function ($item) { 
+        $primarchs = array_map(function ($item) {
             return array(
                 'name'          => $item[0],
                 'legion'        => $item[1],

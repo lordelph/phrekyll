@@ -5,22 +5,22 @@ permalink: /en/documentation/articles/create-custom-processor/
 <div class="toc-box">&nbsp;</div>
 
 <p>
-    Phrozn was created with plugin architecture in mind, so extending it should be
+    Phrekyll was created with plugin architecture in mind, so extending it should be
     relatively simple process.
 </p>
 <div class="clear"></div>
 <p class="warning">
-    All extension classes MUST reside in <code>.phrozn/plugins/PhroznPlugin</code> folder.<br />
-    Base namespace used for plugin code is <code>PhroznPlugin</code>.
+    All extension classes MUST reside in <code>.phrekyll/plugins/PhrekyllPlugin</code> folder.<br />
+    Base namespace used for plugin code is <code>PhrekyllPlugin</code>.
 </p>
 
 <h2 id="create-processor" class="in-toc">1. Create Processor Class</h2>
 <p>
     In order for your class to be used as drop-in replacement for some standard
-    text processor it MUST implement <code>\Phrozn\Processor</code> interface:
+    text processor it MUST implement <code>\Phrekyll\Processor</code> interface:
 </p>
 <pre class="php">
-namespace Phrozn;
+namespace Phrekyll;
 interface Processor
 {
     /**
@@ -38,7 +38,7 @@ interface Processor
      *
      * @param array $options Options to pass to engine
      *
-     * @return \Phrozn\Processor
+     * @return \Phrekyll\Processor
      */
     public function setConfig($options);
 
@@ -51,16 +51,16 @@ interface Processor
 }
 </pre>
 <p>
-Standard location for processor classes is <code>plugins/PhroznPlugin/Processor</code>:
+Standard location for processor classes is <code>plugins/PhrekyllPlugin/Processor</code>:
 </p>
 
 <pre class="php">
-// .phrozn/plugins/Processor/Test.php
-namespace PhroznPlugin\Processor;
+// .phrekyll/plugins/Processor/Test.php
+namespace PhrekyllPlugin\Processor;
 
 class Test
-    extends \Phrozn\Processor\Base
-    implements \Phrozn\Processor
+    extends \Phrekyll\Processor\Base
+    implements \Phrekyll\Processor
 {
     public function render($tpl, $vars = array())
     {
@@ -70,12 +70,12 @@ class Test
 </pre>
 
 <p>
-As you see, Test processor inherits from <code>\Phrozn\Processor\Base</code>
+As you see, Test processor inherits from <code>\Phrekyll\Processor\Base</code>
 - base class which simplifies things by implementing some accessor/mutator methods
 (fancy names for getters/setters).
 </p>
 <p>
-Thus, if you rely on <code>\Phrozn\Processor\Base</code>, the only method you need to implement is
+Thus, if you rely on <code>\Phrekyll\Processor\Base</code>, the only method you need to implement is
 <code>render()</code>.
 </p>
 
@@ -86,13 +86,13 @@ So far we have Test processor which simply wraps incoming template into &lt;b&gt
 <h2 id="create-view" class="in-toc">2. Create View</h2>
 <p>
 For rendering given entry into static HTML page, you need to create content rendering View class.
-Basically, whenever Phrozn encounters file with extension that matches name of some
+Basically, whenever Phrekyll encounters file with extension that matches name of some
 registered View class, object of this class is used for rendering.
 </p>
 <p>
 So, all *.twig files, for instance, are actually compiled using
-<code>\Phrozn\Site\View\Twig</code> class, which in turn uses
-<code>\Phrozn\Processor\Twig</code> text processor for rendering.
+<code>\Phrekyll\Site\View\Twig</code> class, which in turn uses
+<code>\Phrekyll\Processor\Twig</code> text processor for rendering.
 </p>
 
 <p>
@@ -101,11 +101,11 @@ So, all *.twig files, for instance, are actually compiled using
 </p>
 
 <p>
-View classes MUST implement <code>\Phrozn\Site\View</code> interface:
+View classes MUST implement <code>\Phrekyll\Site\View</code> interface:
 </p>
 <pre class="php">
-namespace Phrozn\Site;
-use Phrozn\Has;
+namespace Phrekyll\Site;
+use Phrekyll\Has;
 interface View
     extends
         Has\SiteConfig,
@@ -123,7 +123,7 @@ interface View
      *
      * @param array $vars List of variables passed to text processors
      *
-     * @return \Phrozn\Site\View
+     * @return \Phrekyll\Site\View
      */
     public function compile($vars = array());
 
@@ -140,23 +140,23 @@ interface View
 
 <p>As you can see, this interface relies on many other interfaces
 (yep, I am fan of <a href="http://en.wikipedia.org/wiki/Interface_segregation_principle">ISP</a>),
-which makes it harder for clients to implement <code>\Phrozn\Site\View</code> directly.
-Fortunately, as with processors, we have base implementation <code>\Phrozn\Site\View\Base</code>
+which makes it harder for clients to implement <code>\Phrekyll\Site\View</code> directly.
+Fortunately, as with processors, we have base implementation <code>\Phrekyll\Site\View\Base</code>
 which takes care of most of the auxiliary methods, thus
 allowing to concentrate only on methods directly related to rendering.
 </p>
 
 <p>
-    Standard location for your View renderers is <code>plugins/PhroznPlugin/Site/View</code>:
+    Standard location for your View renderers is <code>plugins/PhrekyllPlugin/Site/View</code>:
 </p>
 <pre class="php">
-// .phrozn/plugins/Site/View/Test.php
-namespace PhroznPlugin\Site\View;
-use PhroznPlugin\Processor;
+// .phrekyll/plugins/Site/View/Test.php
+namespace PhrekyllPlugin\Site\View;
+use PhrekyllPlugin\Processor;
 
 class Test
-    extends \Phrozn\Site\View\Base
-    implements \Phrozn\Site\View
+    extends \Phrekyll\Site\View\Base
+    implements \Phrekyll\Site\View
 {
     /**
      * Initialize view
@@ -164,7 +164,7 @@ class Test
      * @param string $inputFile Path to view source file
      * @param string $outputDir File destination path
      *
-     * @return \Phrozn\Site\View
+     * @return \Phrekyll\Site\View
      */
     public function __construct($inputFile = null, $outputDir = null)
     {
@@ -185,14 +185,14 @@ class Test
 
 <h2 id="register-view" class="in-toc">3. Register View Renderer</h2>
 <p>
-    As mentioned before, Phrozn matches extensions of entries to view names, so
+    As mentioned before, Phrekyll matches extensions of entries to view names, so
     our Test view will be used every time entry with ".test" extension is located.
     Time to add one:
 </p>
 <pre class="html">
-# .phrozn/entries/tmp/sample.test
+# .phrekyll/entries/tmp/sample.test
 ---&nbsp;
-This entry should be rendered with \PhroznPlugin\Site\View\Test View renderer.
+This entry should be rendered with \PhrekyllPlugin\Site\View\Test View renderer.
 </pre>
 
 <p>
@@ -202,13 +202,13 @@ In order to enable entry rendering within layout
 to override <code>render()</code> method:
 </p>
 <pre>
-// .phrozn/plugins/PhroznPlugin/Site/View/Test.php
-namespace PhroznPlugin\Site\View;
-use PhroznPlugin\Processor;
+// .phrekyll/plugins/PhrekyllPlugin/Site/View/Test.php
+namespace PhrekyllPlugin\Site\View;
+use PhrekyllPlugin\Processor;
 
 class Test
-    extends \Phrozn\Site\View\Base
-    implements \Phrozn\Site\View
+    extends \Phrekyll\Site\View\Base
+    implements \Phrekyll\Site\View
 {
     /**
      * Initialize view
@@ -216,7 +216,7 @@ class Test
      * @param string $inputFile Path to view source file
      * @param string $outputDir File destination path
      *
-     * @return \Phrozn\Site\View
+     * @return \Phrekyll\Site\View
      */
     public function __construct($inputFile = null, $outputDir = null)
     {
@@ -248,6 +248,6 @@ class Test
 
 <p>
 This summarizes the usage and implementation of custom processors, for inspiration
-make sure you check <code>\Phrozn\Processor</code> classes which come out-of-box
-with every Phrozn installation.
+make sure you check <code>\Phrekyll\Processor</code> classes which come out-of-box
+with every Phrekyll installation.
 </p>

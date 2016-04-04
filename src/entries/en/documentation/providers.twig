@@ -6,9 +6,9 @@ permalink: /en/documentation/providers/
 
 <h2 id="core" class="in-toc">Introduction</h2>
 <p>
-Sometimes you need to use external data within your Phrozn pages.
+Sometimes you need to use external data within your Phrekyll pages.
 For the most obvious example, let's assume you have an RSS feed and want to display it's contents
-on some Phrozn page. Content providers are exactly for this kind of tasks.
+on some Phrekyll page. Content providers are exactly for this kind of tasks.
 </p>
 <p class="note">
 Content providers are classes that inject content within your otherwise static pages. Roughly, they represent Data Access
@@ -24,14 +24,14 @@ then inject into templates.
 
 <h2 id="provider-class" class="in-toc">Content Provider Class</h2>
 <p class="warning">
-All extension classes MUST reside in <code>.phrozn/plugins</code> folder.<br>
-Base namespace used for plugin code is <code>PhroznPlugin</code>.
+All extension classes MUST reside in <code>.phrekyll/plugins</code> folder.<br>
+Base namespace used for plugin code is <code>PhrekyllPlugin</code>.
 </p>
 
-<p>In order for your class to be used as Content Provider it MUST implement <code>Phrozn\Provider</code> interface.</p>
+<p>In order for your class to be used as Content Provider it MUST implement <code>Phrekyll\Provider</code> interface.</p>
 <pre class="php">
-namespace Phrozn;
-use Phrozn\Has;
+namespace Phrekyll;
+use Phrekyll\Has;
 
 interface Provider
     extends Has\Config,
@@ -49,8 +49,8 @@ interface Provider
 Other methods are inherited from <code>Has\Config</code> and <code>Has\ProjectPath</code> interfaces and are
 used to inject extra configuration and project path respectively.</p>
 <p>
-In order to simplify the creation of new content providers, Phrozn comes with base class that implements
-all this auxiliary functionality, and the only method you generally need to implement is <code>\Phrozn\Provider::get()</code>.
+In order to simplify the creation of new content providers, Phrekyll comes with base class that implements
+all this auxiliary functionality, and the only method you generally need to implement is <code>\Phrekyll\Provider::get()</code>.
 </p>
 <p>
 Any data returned from <code>get()</code> method can be injected into templates. While you can return scalars,
@@ -84,7 +84,7 @@ providers:
         <td><code>provider</code></td>
         <td>
         Class name of the Content Provider class.
-        <br />This class must implement <code>\Phrozn\Provider</code> interface.
+        <br />This class must implement <code>\Phrekyll\Provider</code> interface.
         </td>
     </tr>
     <tr>
@@ -92,7 +92,7 @@ providers:
         <td>
             You can pass any named parameters to provider class, thus allowing parametrization.
             Parameters are optional, and if passed can be accessed within provider class by
-            using <code>\Phrozn\Provider::getConfig()</code> method.
+            using <code>\Phrekyll\Provider::getConfig()</code> method.
         </td>
     </tr>
 </table>
@@ -116,11 +116,11 @@ Standard location for processor classes is <code>plugins/Provider</code>, so we 
 <code>plugins/Provider/Primarchs.php</code>:</p>
 
 <pre class="php">
-namespace PhroznPlugin\Provider;
+namespace PhrekyllPlugin\Provider;
 
 class Primarchs
-    extends \Phrozn\Provider\Base
-    implements \Phrozn\Provider
+    extends \Phrekyll\Provider\Base
+    implements \Phrekyll\Provider
 {
     private $primarchs = array(
         array("Lion El'Jonson",           "Dark Angels",                  "Loyal"),
@@ -216,7 +216,7 @@ Pretty simple stuff, right?
 
 <h2 id="conclusion" class="in-toc">Conclusion</h2>
 <p>
-As you see, Phrozn has quite a good support for dynamic content (if you are ok with putting
+As you see, Phrekyll has quite a good support for dynamic content (if you are ok with putting
 that data into static form).
 </p>
 <p>
@@ -227,6 +227,6 @@ Content Providers.
 Finally, you can check the code in context on GitHub:
 </p>
 <ul>
-    <li><a href="https://github.com/Pawka/phrozn-site/blob/master/plugins/Provider/Primarchs.php">plugins/Provider/Primarchs.php</a></li>
-    <li><a href="https://github.com/Pawka/phrozn-site/blob/master/entries/en/samples/provider.primarchs.twig">entries/en/samples/provider.primarchs.twig</a></li>
+    <li><a href="https://github.com/Pawka/phrekyll-site/blob/master/plugins/Provider/Primarchs.php">plugins/Provider/Primarchs.php</a></li>
+    <li><a href="https://github.com/Pawka/phrekyll-site/blob/master/entries/en/samples/provider.primarchs.twig">entries/en/samples/provider.primarchs.twig</a></li>
 </ul>
