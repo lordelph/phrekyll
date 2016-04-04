@@ -200,7 +200,7 @@ abstract class Base
     public function getSiteConfig()
     {
         if (null === $this->siteConfig) {
-            $configFile = realpath($this->getInputDir() . '/config.yml');
+            $configFile = realpath($this->getProjectDir() . '/config.yml');
             $yaml=file_get_contents($configFile);
             $this->siteConfig = Yaml::parse($yaml);
         }
