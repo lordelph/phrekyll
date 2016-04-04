@@ -19,6 +19,7 @@
  */
 
 namespace Phrozn\Outputter;
+
 use Phrozn\Outputter;
 
 /**
@@ -33,8 +34,7 @@ use Phrozn\Outputter;
  * @author      Victor Farazdagi
  * @author      Antoine Goutenoir
  */
-class HtmlOutputter
-    implements Outputter
+class HtmlOutputter extends AbstractOutputter
 {
     /**
      * Writes the message $msg to STDOUT.
@@ -48,16 +48,7 @@ class HtmlOutputter
     {
         $msg = $this->removeColors($msg);
         $msg = $this->replaceEOLs($msg);
-
-        if (defined('STDOUT')) {
-            fwrite(STDOUT, $msg);
-        } else {
-            echo $msg;
-            if (count(\ob_get_status()) !== 0) {
-                ob_flush();
-            }
-        }
-        return $this;
+        return parent::stdout($msg, $status);
     }
 
     /**
@@ -73,16 +64,7 @@ class HtmlOutputter
         $msg = "<strong>".$msg."</strong>";
         $msg = $this->removeColors($msg);
         $msg = $this->replaceEOLs($msg);
-
-        if (defined('STDERR')) {
-            fwrite(STDERR, $msg);
-        } else {
-            echo $msg;
-            if (count(\ob_get_status()) !== 0) {
-                ob_flush();
-            }
-        }
-        return $this;
+        return parent::stderr($msg, $status);
     }
 
     private function removeColors($msg)
@@ -92,6 +74,6 @@ class HtmlOutputter
 
     protected function replaceEOLs($msg)
     {
-        return nl2br($msg,false) . "<br>\n";
+        return nl2br($msg, false) . "<br>\n";
     }
 }
