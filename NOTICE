@@ -1,6 +1,8 @@
-Phrozn - Static site generator for PHP
-Copyright 2011 Victor Farazdagi
+Phrekyll - Static site generator for PHP
+
+All copyright the code belongs to the contributors and is licensed under the Apache v2.0 Licence.
 
 Portions of this software were developed and contributed by:
 
-- Osman Üngür (Phrozn Internal Web-Server)
+- Osman Üngür (Internal Web-Server)
+- Victor Farazdagi (Original Phrozn project from which this was forked)

@@ -2,21 +2,22 @@ h1. Phrekyll !https://travis-ci.org/lordelph/phrekyll.png?branch=master!:https:/
 
 Phrekyll is extremely flexible static site generator in PHP.
 
-It is derived from the no-longer-maintained Phrozn project. 
+It is derived from the no-longer-maintained Phrozn project.
 
 h2. Roadmap
 
-This is a fork of the dead phrozn project. Here's our roadmap to a first release
+This is a fork of the dead "phrozn":https://github.com/Pawka/phrozn project. Here's our roadmap to a first release
 
 * Complete renaming of project in all documentation
 * Ensure tests pass in PHP7
-* Eliminate PEAR dependancies
+* Eliminate PEAR dependancies and ensure all dependancies are up to date and fit for purpose
 
 
 h2. Philosophy
 
 * Configurable: you should be able to tune it to your needs
 * SCM-Enabled: no extra work to make your site git-enabled
+* Focus on PHP 7 - if you want something older, use "phrozn":https://github.com/Pawka/phrozn
 
 h2. Install
 

@@ -1,11 +1,11 @@
 #!/usr/bin/env php
 <?php
 
-Phar::mapPhar('phrozn.phar');
-require_once 'phar://phrozn.phar/Phrozn/Autoloader.php';
+Phar::mapPhar('phrekyll.phar');
+require_once 'phar://phrekyll.phar/Phrekyll/Autoloader.php';
 
-$loader = Phrozn\Autoloader::getInstance();
-$runner = new Phrozn\Runner\CommandLine($loader);
+$loader = Phrekyll\Autoloader::getInstance();
+$runner = new Phrekyll\Runner\CommandLine($loader);
 $runner->run();
 
 unset($runner, $loader);

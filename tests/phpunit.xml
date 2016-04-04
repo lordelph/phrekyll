@@ -15,7 +15,7 @@
          verbose="true"
          strict="false">
     <testsuites>
-        <testsuite name="Phrozn Test Suite">
+        <testsuite name="Phrekyll Test Suite">
             <directory>./</directory>
         </testsuite>
     </testsuites>
@@ -27,10 +27,10 @@
 
     <filter>
         <whitelist>
-            <directory suffix=".php">../Phrozn</directory>
+            <directory suffix=".php">../Phrekyll</directory>
             <exclude>
-                <directory suffix=".php">../Phrozn/Vendor</directory>
-                <file>../Phrozn/Autoloader.php</file>
+                <directory suffix=".php">../Phrekyll/Vendor</directory>
+                <file>../Phrekyll/Autoloader.php</file>
             </exclude>
         </whitelist>
     </filter>
