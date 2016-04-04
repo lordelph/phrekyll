@@ -37,7 +37,7 @@ class ConfigTest
         $config = new Config(dirname(__FILE__) . '/../../configs/');
         $this->assertTrue(isset($config['phrekyll']));
         $this->assertTrue(isset($config['phrekyll']['author']));
-        $this->assertSame('Victor Farazdagi', $config['phrekyll']['author']);
+        $this->assertSame('Paul Dixon', $config['phrekyll']['author']);
 
         $config['phrekyll'] = 'updated';
         $this->assertSame('updated', $config['phrekyll']);
