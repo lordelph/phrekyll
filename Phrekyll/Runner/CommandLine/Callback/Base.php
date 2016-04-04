@@ -335,7 +335,7 @@ abstract class Base
     {
         $meta = $this->getCommandMeta();
         $out = "\n{$meta['description']}\n";
-        $out .= "For additional information, see %9http://phrekyll.info%n";
+        $out .= "For additional information, see %9http://phrekyll.dixo.net%n";
         return $out;
     }
 
