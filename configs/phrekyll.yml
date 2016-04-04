@@ -3,9 +3,9 @@
 name: Phrekyll
 summary: Static web-site generator for PHP.
 description: &desc Phrekyll is an extremely flexible static site generator for PHP.
-version: &ver "0.5.7DEV"
+version: &ver "0.9.0dev"
 stability: beta
-author: Victor Farazdagi
+author: Paul Dixon
 
 # executable customization
 use_ansi_colors: false
