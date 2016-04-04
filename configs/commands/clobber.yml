@@ -1,13 +1,13 @@
-# phr clobber 
+# phr clobber
 ---
 command:
     name: &name clobber
-    aliases: 
-    description: &desc Purge Phrozn project directory
+    aliases:
+    description: &desc Purge Phrekyll project directory
     arguments:
         path:
             help_name: path
-            description: Path to search Phrozn directories in
+            description: Path to search Phrekyll directories in
             optional: true
 
 # callback
@@ -18,16 +18,16 @@ docs:
     name: clobber
     summary: *desc
     description: |
-        This command locates and removes Phrozn project directory ".phrozn", effectively
+        This command locates and removes Phrekyll project directory ".phrekyll", effectively
         deleting all user generated content.
 
         Use with caution.
 
         If output PATH not provided, current directory is assumed.
-    usage: %bphrozn%n %gclobber%n [PATH]
+    usage: %bphrekyll%n %gclobber%n [PATH]
     examples: |
         To remove project directory in a current folder:
-        %bphrozn%n %gclobber%n 
+        %bphrekyll%n %gclobber%n
 
         To remove project directory in specified folder PATH:
-        %bphrozn%n %gclobber%n PATH
+        %bphrekyll%n %gclobber%n PATH

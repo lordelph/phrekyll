@@ -1,0 +1,18 @@
+update (up): Phrekyll usage manual
+usage: phrekyll up [SRC] [DEST]
+
+  This command compiles/updates static site.
+
+  If output PATH not provided, current directory is assumed.
+
+Available options:
+  -R [--regen]                    : Re-generate the site from scratch removing any previous content
+
+Valid arguments:
+  [SRC]                           : Source directory
+  [DEST]                          : Destination directory
+
+Use help with -v or --verbose option to get more information.
+
+Phrekyll is an extremely flexible static site generator for PHP.
+For additional information, see http://phrekyll.info

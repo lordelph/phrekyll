@@ -1,0 +1,7 @@
+permalink: .htaccess
+skip: true
+---
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^phrekyll\.info$
+RewriteRule (.*) http://www.phrekyll.info/$1 [R=301,L]
+RewriteRule ^$ en [L]

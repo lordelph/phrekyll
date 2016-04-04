@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Phrozn" default="package">
+<project name="Phrekyll" default="package">
 
     <!-- Target: package -->
     <target name="package">
-        <delete file="./bin/phrozn.phar" />
+        <delete file="./bin/phrekyll.phar" />
         <pharpackage
-            destfile="./bin/phrozn.phar"
+            destfile="./bin/phrekyll.phar"
             basedir="."
             stub="./app/stub.php"
             signature="sha1">
             <fileset dir=".">
-                <include name="Phrozn/**" />
+                <include name="Phrekyll/**" />
                 <include name="configs/**" />
                 <include name="vendor/**" />
                 <include name="skeleton/**" />
@@ -24,6 +24,6 @@
                 </element>
             </metadata>
         </pharpackage>
-        <chmod file="bin/phrozn.phar" mode="0755" />
+        <chmod file="bin/phrekyll.phar" mode="0755" />
     </target>
 </project>

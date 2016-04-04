@@ -3,7 +3,7 @@
 command:
     name: &name help
     aliases: [h, ?]
-    description: &desc Phrozn usage manual
+    description: &desc Phrekyll usage manual
     options:
         verbose:
            short_name: -v
@@ -25,5 +25,5 @@ docs:
     name: *name
     summary: *desc
     description: |
-        Type 'phrozn help <command>' for help on a specific command.
-    usage: %bphrozn%n %ghelp%n <command>
+        Type 'phrekyll help <command>' for help on a specific command.
+    usage: %bphrekyll%n %ghelp%n <command>

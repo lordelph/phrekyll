@@ -1,5 +1,5 @@
 {
-    "name": "pawka/phrozn",
+    "name": "pawka/phrekyll",
     "description": "Static Site Generator for PHP",
     "require": {
         "twig/twig": "1.12.*",
@@ -14,8 +14,8 @@
     },
     "autoload": {
         "psr-0": {
-            "Phrozn": "" ,
-            "PhroznPlugin": "plugins/"
+            "Phrekyll": "" ,
+            "PhrekyllPlugin": "plugins/"
         }
     },
     "scripts": {
@@ -27,8 +27,8 @@
             "ln -s up.yml configs/commands/build.yml",
             "ln -s up.yml configs/commands/update.yml",
             "rm -f bin/phr.php",
-            "ln -s phrozn.php bin/phr.php",
-            "chmod +x bin/phrozn.php",
+            "ln -s phrekyll.php bin/phr.php",
+            "chmod +x bin/phrekyll.php",
             "cp -r vendor/pear/pear_exception/PEAR vendor/pear/console_commandline/Console/CommandLine"
         ]
     },

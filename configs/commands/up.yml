@@ -3,7 +3,7 @@
 command:
     name: &name up
     aliases: [build, update]
-    description: &desc Phrozn usage manual
+    description: &desc Phrekyll usage manual
     options:
         regen:
             short_name:  -R
@@ -32,13 +32,13 @@ docs:
         This command compiles/updates static site.
 
         If output PATH not provided, current directory is assumed.
-    usage: %bphrozn%n %gup%n [SRC] [DEST]
+    usage: %bphrekyll%n %gup%n [SRC] [DEST]
     examples: |
         To compile project in current directory:
-        %bphrozn%n %gup%n
+        %bphrekyll%n %gup%n
 
         To compile project to specified directory DEST:
-        %bphrozn%n %ginit%n DEST
+        %bphrekyll%n %ginit%n DEST
 
         To compile project located in current directory to directory DEST:
-        %bphrozn%n %ginit%n .
+        %bphrekyll%n %ginit%n .
