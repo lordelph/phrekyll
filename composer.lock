@@ -1,9 +1,11 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
     ],
-    "hash": "87776be6c78238c3ee1f30ac75389cd4",
+    "hash": "f895c0555e2d389e9100ac25978a9c78",
+    "content-hash": "b99d3fa0f364e2db1b91b2ad38b956f3",
     "packages": [
         {
             "name": "leafo/lessphp",
@@ -11,14 +13,20 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/leafo/lessphp.git",
-                "reference": "33a82c3d65d8004872f2f560a4d35eca8b85762b"
+                "reference": "e701984d5d488599441623d3d56bd42103019ab6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leafo/lessphp/zipball/33a82c3d65d8004872f2f560a4d35eca8b85762b",
-                "reference": "33a82c3d65d8004872f2f560a4d35eca8b85762b",
+                "url": "https://api.github.com/repos/leafo/lessphp/zipball/e701984d5d488599441623d3d56bd42103019ab6",
+                "reference": "e701984d5d488599441623d3d56bd42103019ab6",
                 "shasum": ""
             },
+            "require-dev": {
+                "phpunit/phpunit": "~4.3"
+            },
+            "bin": [
+                "plessc"
+            ],
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -44,7 +52,7 @@
             ],
             "description": "lessphp is a compiler for LESS written in PHP.",
             "homepage": "http://leafo.net/lessphp/",
-            "time": "2013-12-05 20:49:10"
+            "time": "2014-12-29 20:45:53"
         },
         {
             "name": "michelf/php-markdown",
@@ -151,36 +159,110 @@
             "time": "2014-01-02 09:39:06"
         },
         {
-            "name": "pear/Console_Color2",
+            "name": "pear/archive_tar",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/pear/Console_Color2",
-                "reference": "771a5a4acc850ad874527798f60e030b8aa47dec"
+                "url": "https://github.com/pear/Archive_Tar.git",
+                "reference": "bdd47347df76dbaa89227c5e1afd6f6809985b4c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pear/Console_Color2/zipball/771a5a4acc850ad874527798f60e030b8aa47dec",
-                "reference": "771a5a4acc850ad874527798f60e030b8aa47dec",
+                "url": "https://api.github.com/repos/pear/Archive_Tar/zipball/bdd47347df76dbaa89227c5e1afd6f6809985b4c",
+                "reference": "bdd47347df76dbaa89227c5e1afd6f6809985b4c",
                 "shasum": ""
             },
             "require": {
+                "pear/pear-core-minimal": "^1.10.0alpha2",
+                "php": ">=5.2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "suggest": {
+                "ext-bz2": "bz2 compression support.",
+                "ext-xz": "lzma2 compression support.",
+                "ext-zlib": "Gzip compression support."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Archive_Tar": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "./"
+            ],
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Vincent Blavet",
+                    "email": "vincent@phpconcept.net"
+                },
+                {
+                    "name": "Greg Beaver",
+                    "email": "greg@chiaraquartet.net"
+                },
+                {
+                    "name": "Michiel Rook",
+                    "email": "mrook@php.net"
+                }
+            ],
+            "description": "Tar file management class",
+            "homepage": "https://github.com/pear/Archive_Tar",
+            "keywords": [
+                "archive",
+                "tar"
+            ],
+            "time": "2016-02-25 10:30:39"
+        },
+        {
+            "name": "pear/console_color2",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pear/Console_Color2.git",
+                "reference": "e7cc88dc38253d7e7441bb58e0418ff5e5ff65b7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pear/Console_Color2/zipball/e7cc88dc38253d7e7441bb58e0418ff5e5ff65b7",
+                "reference": "e7cc88dc38253d7e7441bb58e0418ff5e5ff65b7",
+                "shasum": ""
+            },
+            "require": {
+                "pear/pear_exception": "*",
                 "php": ">=5.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
             },
             "type": "library",
             "autoload": {
                 "psr-0": {
-                    "Console_Color2": ""
+                    "Console": "./"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "./"
+            ],
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
                     "name": "Daniel O'Connor",
-                    "email": "daniel.oconnor@gmail.com"
+                    "email": "daniel.oconnor@gmail.com",
+                    "role": "Pear Developer"
                 },
                 {
                     "name": "Stefan Walk",
@@ -196,79 +278,35 @@
             "keywords": [
                 "console"
             ],
-            "time": "2012-10-23 11:50:08"
-        },
-        {
-            "name": "pear/archive_tar",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/pear/Archive_Tar.git",
-                "reference": "617573c4444d23a5c67faf10e6c861c7c4b2ba73"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/pear/Archive_Tar/zipball/617573c4444d23a5c67faf10e6c861c7c4b2ba73",
-                "reference": "617573c4444d23a5c67faf10e6c861c7c4b2ba73",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=4.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Archive_Tar": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Michiel Rook",
-                    "email": "mrook@php.net"
-                },
-                {
-                    "name": "Vincent Blavet",
-                    "email": "vincent@phpconcept.net"
-                },
-                {
-                    "name": "Greg Beaver",
-                    "email": "greg@chiaraquartet.net"
-                }
-            ],
-            "description": "Tar file management class",
-            "homepage": "https://github.com/pear/Archive_Tar",
-            "keywords": [
-                "archive",
-                "tar"
-            ],
-            "time": "2013-11-21 10:57:51"
+            "time": "2014-02-21 08:53:10"
         },
         {
             "name": "pear/console_commandline",
             "version": "dev-trunk",
             "source": {
                 "type": "git",
-                "url": "https://github.com/pear/Console_CommandLine",
-                "reference": "210b2532d3921bfca7720dfb1aba98150434f8be"
+                "url": "https://github.com/pear/Console_CommandLine.git",
+                "reference": "ea39c3084a33e6f9cd38d60cbf5177bedeb4ce00"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pear/Console_CommandLine/zipball/210b2532d3921bfca7720dfb1aba98150434f8be",
-                "reference": "210b2532d3921bfca7720dfb1aba98150434f8be",
+                "url": "https://api.github.com/repos/pear/Console_CommandLine/zipball/ea39c3084a33e6f9cd38d60cbf5177bedeb4ce00",
+                "reference": "ea39c3084a33e6f9cd38d60cbf5177bedeb4ce00",
                 "shasum": ""
             },
             "require": {
-                "pear/pear_exception": "dev-master",
+                "ext-dom": "*",
+                "ext-xml": "*",
+                "pear/pear_exception": "^1.0.0",
                 "php": ">=5.1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
             },
             "type": "library",
             "autoload": {
                 "psr-0": {
-                    "Console_CommandLine": ""
+                    "Console": "./"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -281,7 +319,7 @@
             "authors": [
                 {
                     "name": "Richard Quadling",
-                    "email": "rquadling@gmail.com"
+                    "email": "RQuadling@GMail.com"
                 },
                 {
                     "name": "David Jean Louis",
@@ -293,27 +331,74 @@
             "keywords": [
                 "console"
             ],
-            "time": "2013-02-02 21:07:53"
+            "time": "2015-12-11 07:22:20"
         },
         {
-            "name": "pear/console_table",
-            "version": "dev-trunk",
+            "name": "pear/console_getopt",
+            "version": "v1.4.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/pear/Console_Table.git",
-                "reference": "e865ecf1bf50fcb42276a913acbd3648cd83fbc3"
+                "url": "https://github.com/pear/Console_Getopt.git",
+                "reference": "82f05cd1aa3edf34e19aa7c8ca312ce13a6a577f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pear/Console_Table/zipball/e865ecf1bf50fcb42276a913acbd3648cd83fbc3",
-                "reference": "e865ecf1bf50fcb42276a913acbd3648cd83fbc3",
+                "url": "https://api.github.com/repos/pear/Console_Getopt/zipball/82f05cd1aa3edf34e19aa7c8ca312ce13a6a577f",
+                "reference": "82f05cd1aa3edf34e19aa7c8ca312ce13a6a577f",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Console": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "./"
+            ],
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Greg Beaver",
+                    "email": "cellog@php.net",
+                    "role": "Helper"
+                },
+                {
+                    "name": "Andrei Zmievski",
+                    "email": "andrei@php.net",
+                    "role": "Lead"
+                },
+                {
+                    "name": "Stig Bakken",
+                    "email": "stig@php.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "More info available on: http://pear.php.net/package/Console_Getopt",
+            "time": "2015-07-20 20:28:12"
+        },
+        {
+            "name": "pear/console_table",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pear/Console_Table.git",
+                "reference": "c7549096dbe4c25f5f95b405ebfdcfed9b5c0d85"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pear/Console_Table/zipball/c7549096dbe4c25f5f95b405ebfdcfed9b5c0d85",
+                "reference": "c7549096dbe4c25f5f95b405ebfdcfed9b5c0d85",
                 "shasum": ""
             },
             "require": {
-                "php": ">=4.0.0"
+                "php": ">=5.2.0"
             },
             "suggest": {
-                "pear/Console_Color": ">=0.0.4"
+                "pear/Console_Color2": ">=0.1.2"
             },
             "type": "library",
             "autoload": {
@@ -323,7 +408,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD"
+                "BSD-2-Clause"
             ],
             "authors": [
                 {
@@ -343,12 +428,56 @@
                     "homepage": "http://pear.php.net/user/richard"
                 }
             ],
-            "description": "Class that makes it easy to build console style tables.",
-            "homepage": "https://github.com/pear/Console_Table",
+            "description": "Library that makes it easy to build console style tables.",
+            "homepage": "http://pear.php.net/package/Console_Table/",
             "keywords": [
                 "console"
             ],
-            "time": "2013-10-14 08:55:16"
+            "time": "2016-01-21 16:15:28"
+        },
+        {
+            "name": "pear/pear-core-minimal",
+            "version": "v1.10.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pear/pear-core-minimal.git",
+                "reference": "cae0f1ce0cb5bddb611b0a652d322905a65a5896"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pear/pear-core-minimal/zipball/cae0f1ce0cb5bddb611b0a652d322905a65a5896",
+                "reference": "cae0f1ce0cb5bddb611b0a652d322905a65a5896",
+                "shasum": ""
+            },
+            "require": {
+                "pear/console_getopt": "~1.3",
+                "pear/pear_exception": "~1.0"
+            },
+            "replace": {
+                "rsky/pear-core-min": "self.version"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "src/"
+            ],
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Weiske",
+                    "email": "cweiske@php.net",
+                    "role": "Lead"
+                }
+            ],
+            "description": "Minimal set of PEAR core files to be used as composer dependency",
+            "time": "2015-10-17 11:41:19"
         },
         {
             "name": "pear/pear_exception",
@@ -356,18 +485,26 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pear/PEAR_Exception.git",
-                "reference": "2f560fae7ce41910f1deb7337e8951e35b413f1e"
+                "reference": "8c18719fdae000b690e3912be401c76e406dd13b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pear/PEAR_Exception/zipball/2f560fae7ce41910f1deb7337e8951e35b413f1e",
-                "reference": "2f560fae7ce41910f1deb7337e8951e35b413f1e",
+                "url": "https://api.github.com/repos/pear/PEAR_Exception/zipball/8c18719fdae000b690e3912be401c76e406dd13b",
+                "reference": "8c18719fdae000b690e3912be401c76e406dd13b",
                 "shasum": ""
             },
             "require": {
                 "php": ">=4.4.0"
             },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
             "type": "class",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "PEAR": ""
@@ -378,7 +515,7 @@
                 "."
             ],
             "license": [
-                "BSD-3-Clause"
+                "BSD-2-Clause"
             ],
             "authors": [
                 {
@@ -387,8 +524,7 @@
                 },
                 {
                     "name": "Greg Beaver",
-                    "email": "cellog@php.net",
-                    "role": "lead"
+                    "email": "cellog@php.net"
                 }
             ],
             "description": "The PEAR Exception base class.",
@@ -396,7 +532,7 @@
             "keywords": [
                 "exception"
             ],
-            "time": "2013-04-28 13:00:16"
+            "time": "2015-02-10 20:07:52"
         },
         {
             "name": "symfony/yaml",
@@ -404,7 +540,7 @@
             "target-dir": "Symfony/Component/Yaml",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/Yaml",
+                "url": "https://github.com/symfony/Yaml.git",
                 "reference": "c508a879829976e30f05e16b96a7ed024ee82ce1"
             },
             "dist": {
@@ -445,12 +581,12 @@
             "version": "v1.12.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/fabpot/Twig.git",
+                "url": "https://github.com/twigphp/Twig.git",
                 "reference": "27f3428b08c7f656d6824359a9d9dee3f5fce31b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/27f3428b08c7f656d6824359a9d9dee3f5fce31b",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/27f3428b08c7f656d6824359a9d9dee3f5fce31b",
                 "reference": "27f3428b08c7f656d6824359a9d9dee3f5fce31b",
                 "shasum": ""
             },
@@ -490,20 +626,12 @@
             "time": "2013-04-08 12:40:11"
         }
     ],
-    "packages-dev": [
-
-    ],
-    "aliases": [
-
-    ],
+    "packages-dev": [],
+    "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [
-
-    ],
-    "platform": [
-
-    ],
-    "platform-dev": [
-
-    ]
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
 }
