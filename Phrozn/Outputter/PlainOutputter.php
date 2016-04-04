@@ -27,48 +27,6 @@ namespace Phrozn\Outputter;
  * @package     Phrozn\Outputter
  * @author      Victor Farazdagi
  */
-class PlainOutputter
-    implements \Phrozn\Outputter
+class PlainOutputter extends AbstractOutputter
 {
-    /**
-     * Writes the message $msg to STDOUT.
-     *
-     * @param string $msg The message to output
-     * @param string $status Ignored
-     *
-     * @return \Phrozn\Outputter
-     */
-    public function stdout($msg, $status = self::STATUS_OK)
-    {
-        if (defined('STDOUT')) {
-            fwrite(STDOUT, $msg);
-        } else {
-            echo $msg;
-            if (count(\ob_get_status()) !== 0) {
-                ob_flush();
-            }
-        }
-        return $this;
-    }
-
-    /**
-     * Writes the message $msg to STDERR.
-     *
-     * @param string $msg The message to output
-     * @param string $status Output status
-     *
-     * @return \Phrozn\Outputter
-     */
-    public function stderr($msg, $status = self::STATUS_FAIL)
-    {
-        if (defined('STDERR')) {
-            fwrite(STDERR, $msg);
-        } else {
-            echo $msg;
-            if (count(\ob_get_status()) !== 0) {
-                ob_flush();
-            }
-        }
-        return $this;
-    }
 }

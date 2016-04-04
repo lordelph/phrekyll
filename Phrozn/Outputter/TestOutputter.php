@@ -19,6 +19,7 @@
  */
 
 namespace Phrozn\Outputter;
+
 use Phrozn\Outputter\Console\Color;
 
 /**
@@ -28,8 +29,7 @@ use Phrozn\Outputter\Console\Color;
  * @package     Phrozn\Outputter
  * @author      Victor Farazdagi
  */
-class TestOutputter
-    implements \Phrozn\Outputter
+class TestOutputter implements \Phrozn\Outputter
 {
     /**
      * Output lines
@@ -58,12 +58,8 @@ class TestOutputter
      */
     public function stdout($msg, $status = self::STATUS_OK)
     {
-        if (defined('STDOUT')) {
-            fwrite(STDOUT, $msg);
-        } else {
-            $msg = Color::strip(Color::convert($msg));
-            $this->lines[] = trim($msg);
-        }
+        $msg = Color::strip(Color::convert($msg));
+        $this->lines[] = trim($msg);
         return $this;
     }
 
@@ -77,12 +73,8 @@ class TestOutputter
      */
     public function stderr($msg, $status = self::STATUS_FAIL)
     {
-        if (defined('STDERR')) {
-            fwrite(STDERR, $msg);
-        } else {
-            $msg = Color::strip(Color::convert($msg));
-            $this->lines[] = trim($msg);
-        }
+        $msg = Color::strip(Color::convert($msg));
+        $this->lines[] = trim($msg);
         return $this;
     }
 
@@ -106,13 +98,13 @@ class TestOutputter
      */
     public function assertInLogs($expected, $errorMsg = "Expected to find '%s' in logs:\n\n%s")
     {
-        foreach($this->getLines() as $log) {
+        foreach ($this->getLines() as $log) {
             if (false !== stripos($log, $expected)) {
                 $this->testCase->assertEquals(1, 1); // increase number of positive assertions
                 return;
             }
         }
-        $this->testCase->fail(sprintf($errorMsg, $expected, var_export($this->getLines(),true)));
+        $this->testCase->fail(sprintf($errorMsg, $expected, var_export($this->getLines(), true)));
     }
 
     /**
@@ -125,7 +117,7 @@ class TestOutputter
      */
     public function assertNotInLogs($message, $errorMsg = "Unexpected string '%s' found in logs:\n\n%s")
     {
-        foreach($this->getLines() as $log) {
+        foreach ($this->getLines() as $log) {
             if (false !== stripos($log, $message)) {
                 $this->testCase->fail(sprintf($errorMsg, $message, var_export($this->getLines(), true)));
             }
@@ -143,5 +135,4 @@ class TestOutputter
     {
         $this->lines = array();
     }
-
 }

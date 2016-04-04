@@ -19,6 +19,7 @@
  */
 
 namespace PhroznTest\Outputter;
+
 use Phrozn\Outputter\TestOutputter as Outputter;
 
 /**
@@ -26,8 +27,7 @@ use Phrozn\Outputter\TestOutputter as Outputter;
  * @package     Phrozn\Outputter
  * @author      Victor Farazdagi
  */
-class TestOutputterTest
-    extends \PHPUnit_Framework_TestCase
+class TestOutputterTest extends \PHPUnit_Framework_TestCase
 {
     public function testStdOut()
     {
@@ -45,37 +45,6 @@ class TestOutputterTest
         $outputter->assertInLogs('sending output');
     }
 
-    public function testStdOutWithResource()
-    {
-        $fp = tmpfile();
-        define('STDOUT', $fp);
-
-        $outputter = new Outputter($this);
-        $outputter->stdout('sending output', '');
-
-        rewind($fp);
-        $contents = fread($fp, 8096);
-
-        fclose($fp);
-
-        $this->assertSame('sending output', trim($contents));
-    }
-
-    public function testStdErrWithResource()
-    {
-        $fp = tmpfile();
-        define('STDERR', $fp);
-
-        $outputter = new Outputter($this);
-        $outputter->stderr('sending output', '');
-
-        rewind($fp);
-        $contents = fread($fp, 8096);
-
-        fclose($fp);
-
-        $this->assertSame('sending output', trim($contents));
-    }
 
     public function testAssertInLogsFail()
     {

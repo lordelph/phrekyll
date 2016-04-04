@@ -29,8 +29,6 @@ use Phrozn\Outputter\DefaultOutputter as Outputter;
 class DefaultOutputterTest
     extends \PHPUnit_Framework_TestCase
 {
-    private $out;
-
     public function testStdOut()
     {
         $fp = tmpfile();

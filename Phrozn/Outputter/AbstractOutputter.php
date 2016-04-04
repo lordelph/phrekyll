@@ -14,7 +14,7 @@
  *
  * @category    Phrozn
  * @package     Phrozn\Outputter
- * @author      Victor Farazdagi
+ * @author      Paul Dixon
  * @license     http://www.apache.org/licenses/LICENSE-2.0
  */
 
@@ -23,14 +23,30 @@ namespace Phrozn\Outputter;
 use Phrozn\Outputter\Console\Color;
 
 /**
- * Default outputter
+ * Abstract outputter provides a useful base for other
+ * outputters by providing overridable stdout and stderr
+ * handles and basic ouput methods
  *
  * @category    Phrozn
  * @package     Phrozn\Outputter
- * @author      Victor Farazdagi
+ * @author      Paul Dixon
  */
-class DefaultOutputter extends AbstractOutputter
+abstract class AbstractOutputter implements \Phrozn\Outputter
 {
+    protected $stdout;
+    protected $stderr;
+
+    public function __construct($stdout = null, $stderr = null)
+    {
+        $this->stdout=defined('STDOUT') ? STDOUT : null;
+        if (!is_null($stdout)) {
+            $this->stdout=$stdout;
+        }
+        $this->stderr=defined('STDERR') ? STDERR : null;
+        if (!is_null($stderr)) {
+            $this->stderr=$stderr;
+        }
+    }
     /**
      * Writes the message $msg to STDOUT.
      *
@@ -41,8 +57,12 @@ class DefaultOutputter extends AbstractOutputter
      */
     public function stdout($msg, $status = self::STATUS_OK)
     {
-        $msg = Color::convert($status . $msg . "\n");
-        return parent::stdout($msg, $status);
+        if ($this->stdout) {
+            fwrite($this->stdout, $msg);
+        } else {
+            echo $msg;
+        }
+        return $this;
     }
 
     /**
@@ -55,7 +75,11 @@ class DefaultOutputter extends AbstractOutputter
      */
     public function stderr($msg, $status = self::STATUS_FAIL)
     {
-        $msg = Color::convert($status . $msg . "\n");
-        return parent::stderr($msg, $status);
+        if ($this->stderr) {
+            fwrite($this->stderr, $msg);
+        } else {
+            echo $msg;
+        }
+        return $this;
     }
 }
