@@ -47,7 +47,8 @@ class Parser
     public function __construct($paths)
     {
         // load main config
-        $config = Yaml::parse($paths['configs'] . 'phrozn.yml');
+        $yaml=file_get_contents($paths['configs'] . 'phrozn.yml');
+        $config = Yaml::parse($yaml);
         parent::__construct($config['command']);
         $this->configureCommand($paths, $config); // load all necessary sub-commands
     }

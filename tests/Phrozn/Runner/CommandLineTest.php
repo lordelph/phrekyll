@@ -19,17 +19,17 @@
  */
 
 namespace PhroznTest\Runner;
-use Phrozn\Runner\CommandLine as Runner,
-    Phrozn\Autoloader as Loader,
-    Phrozn\Outputter\TestOutputter as Outputter;
+
+use Phrozn\Runner\CommandLine as Runner;
+use Phrozn\Autoloader as Loader;
+use Phrozn\Outputter\PlainOutputter as Outputter;
 
 /**
  * @category    Phrozn
  * @package     Phrozn\Runner\CommandLine\Callback
  * @author      Victor Farazdagi
  */
-class CommandLineTest
-    extends \PHPUnit_Framework_TestCase
+class CommandLineTest extends \PHPUnit_Framework_TestCase
 {
     private $phr;
     private $outputter;
@@ -38,13 +38,16 @@ class CommandLineTest
     public function setUp()
     {
         $this->phr = realpath(__DIR__ . '/../../../bin/phrozn.php');
-        $this->outputter = new Outputter($this);
         $this->fout = tmpfile();
-        define('STDOUT', $this->fout);
+
+        $this->outputter = new Outputter($this->fout, null);
 
         require_once 'Phrozn/Autoloader.php';
         $loader = Loader::getInstance();
         $this->runner = new Runner($loader);
+
+        $this->runner->setOutputter($this->outputter, $this->outputter);
+
     }
 
     public function tearDown()
@@ -59,11 +62,11 @@ class CommandLineTest
             'help',
             'update',
         ));
-        $path = dirname(__FILE__) . '/output/phr-help-update.out';
-        $original = file_get_contents($path);
+
         $rendered = $this->getTempFileContents();
-        $rendered = substr($rendered, strpos($rendered, "\n") + 1);
-        $this->assertSame($original, $rendered);
+        $rendered = $this->trimFirstLine($rendered);
+
+        $this->assertOutput('phr-help-update.out', $rendered);
     }
 
     public function testRunHUpdate()
@@ -72,11 +75,11 @@ class CommandLineTest
             $this->phr,
             '-h',
         ));
-        $path = dirname(__FILE__) . '/output/phr-help.out';
-        $original = file_get_contents($path);
+
         $rendered = $this->getTempFileContents();
-        $rendered = substr($rendered, strpos($rendered, "\n") + 1);
-        $this->assertSame($original, $rendered);
+        $rendered = $this->trimFirstLine($rendered);
+
+        $this->assertOutput('phr-help.out', $rendered);
     }
 
     /**
@@ -87,9 +90,17 @@ class CommandLineTest
         $this->runner->run(array(
             $this->phr,
         ));
-        $path = dirname(__FILE__) . '/output/phr-no-params.out';
-        $this->assertSame(
-            file_get_contents($path), $this->getTempFileContents());
+
+        $rendered = $this->getTempFileContents();
+        $this->assertOutput('phr-no-params.out', $rendered);
+    }
+
+    private function assertOutput($expectedFile, $actual)
+    {
+        $path = dirname(__FILE__) . '/output/'.$expectedFile;
+        $expected=$this->cleanOutput(file_get_contents($path));
+        $actual=$this->cleanOutput($actual);
+        $this->assertSame($expected, $actual);
     }
 
     private function getParseResult($cmd)
@@ -101,6 +112,25 @@ class CommandLineTest
     private function getTempFileContents()
     {
         rewind($this->fout);
-        return fread($this->fout, 8096);
+        return trim(fread($this->fout, 8096));
+    }
+
+    private function trimFirstLine($str)
+    {
+        return trim(substr($str, strpos($str, "\n") + 1));
+    }
+
+    /**
+     * This lets us cope with minor variations in white space
+     */
+    private function cleanOutput($str)
+    {
+        //eliminate leading white space
+        $str=preg_replace('/^\s+/m', '', $str);
+
+        //eliminate all empty lines
+        $str=preg_replace('/\n{2,}/', "\n", $str);
+
+        return trim($str);
     }
 }

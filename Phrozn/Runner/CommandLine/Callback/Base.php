@@ -241,9 +241,13 @@ abstract class Base
         $file = $this->getRealCommandName($file);
         $config = $this->getConfig();
         $file = $config['paths']['configs'] . 'commands/' . $file . '.yml';
-        $data = Yaml::parse($file);
+        if (!file_exists($file)) {
+            return false;
+        }
+        $yaml=file_get_contents($file);
+        $data = Yaml::parse($yaml);
 
-        if ($data === $file) {
+        if (!$data) {
             return false;
         }
 
@@ -388,7 +392,8 @@ abstract class Base
     {
         if (null === $this->useAnsiColors) {
             $config = $this->getConfig();
-            $meta = Yaml::parse($config['paths']['configs'] . 'phrozn.yml');
+            $yaml=file_get_contents($config['paths']['configs'] . 'phrozn.yml');
+            $meta = Yaml::parse($yaml);
             $this->useAnsiColors = (bool)$meta['use_ansi_colors'];
         }
         return $this->useAnsiColors;
@@ -398,7 +403,8 @@ abstract class Base
     {
         if (null === $this->commandMeta) {
             $config = $this->getConfig();
-            $this->commandMeta = Yaml::parse($config['paths']['configs'] . 'phrozn.yml');
+            $yaml=file_get_contents($config['paths']['configs'] . 'phrozn.yml');
+            $this->commandMeta = Yaml::parse($yaml);
         }
         return $this->commandMeta;
     }
