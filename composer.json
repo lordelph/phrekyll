@@ -2,7 +2,7 @@
     "name": "lordelph/phrekyll",
     "description": "Static Site Generator for PHP",
     "require": {
-        "twig/twig": "1.12.*",
+        "twig/twig": "~1.0",
         "symfony/yaml": "2.*",
         "pear/Console_Color2": "*",
         "pear/Console_Table": "*",
