@@ -12,4 +12,4 @@ before_script:
 
 script:
   - ./vendor/bin/phpcs --extensions=php --standard=PSR2 --ignore=Vendor/Extra/scss.inc.php Phrekyll
-  - phpunit --configuration tests/phpunit.xml
+  - phpunit
