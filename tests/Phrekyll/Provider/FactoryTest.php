@@ -19,17 +19,16 @@
  */
 
 namespace PhrekyllTest\Provider;
-use \PHPUnit_Framework_TestCase as TestCase,
-    Phrekyll\Provider\Factory;
 
+use \PHPUnit_Framework_TestCase as TestCase;
+use Phrekyll\Provider\Factory;
 
 /**
  * @category    PhrekyllTest
  * @package     Phrekyll\Provider
  * @author      Victor Farazdagi
  */
-class ProviderTest
-    extends TestCase
+class ProviderTest extends TestCase
 {
     public function testProviderCreation()
     {
@@ -68,4 +67,3 @@ class ProviderTest
         $provider->setProjectPath(dirname($input));
     }
 }
-

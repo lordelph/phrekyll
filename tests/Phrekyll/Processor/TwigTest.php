@@ -19,10 +19,10 @@
  */
 
 namespace PhrekyllTest\Processor;
+
 use Phrekyll\Processor\Twig as Processor;
 
-class TestProcessor
-    extends Processor
+class TestProcessor extends Processor
 {
     public function cleanup()
     {
@@ -35,8 +35,7 @@ class TestProcessor
  * @package     Phrekyll\Processor
  * @author      Victor Farazdagi
  */
-class TwigTest
-    extends \PHPUnit_Framework_TestCase
+class TwigTest extends \PHPUnit_Framework_TestCase
 {
     private $path;
 
@@ -70,7 +69,8 @@ class TwigTest
     {
         $cache_dir = dirname(__FILE__) . '/templates/cache/';
         $processor = $this->getProcessor(
-            $this->path . 'tpl1.twig', array(
+            $this->path . 'tpl1.twig',
+            array(
                 'cache' => $cache_dir,
             )
         );
@@ -103,17 +103,17 @@ class TwigTest
         $processor = $this->getProcessor($this->path . 'twig-include.twig');
         $template = file_get_contents($this->path . 'twig-include.twig');
         $rendered = $processor->render($template, array(
-            'a_variable' => 'Aha!',
-            'boxes' => array(
-                array(
-                    'size'      => 'huge',
-                    'title'     => 'phelephant'
-                ),
-                array(
-                    'size'      => 'tiny',
-                    'title'     => 'mouse'
-                )
+        'a_variable' => 'Aha!',
+        'boxes' => array(
+            array(
+                'size'      => 'huge',
+                'title'     => 'phelephant'
+            ),
+            array(
+                'size'      => 'tiny',
+                'title'     => 'mouse'
             )
+        )
         ));
 
         $static = file_get_contents(dirname(__FILE__) . '/templates/twig-include.html');
@@ -125,17 +125,17 @@ class TwigTest
         $processor = $this->getProcessor($this->path . 'twig-child.twig');
         $template = file_get_contents($this->path . 'twig-child.twig');
         $rendered = $processor->render($template, array(
-            'a_variable' => 'Aha!',
-            'boxes' => array(
-                array(
-                    'size'      => 'huge',
-                    'title'     => 'phelephant'
-                ),
-                array(
-                    'size'      => 'tiny',
-                    'title'     => 'mouse'
-                )
+        'a_variable' => 'Aha!',
+        'boxes' => array(
+            array(
+                'size'      => 'huge',
+                'title'     => 'phelephant'
+            ),
+            array(
+                'size'      => 'tiny',
+                'title'     => 'mouse'
             )
+        )
         ));
 
         $static = file_get_contents(dirname(__FILE__) . '/templates/twig-inherit.html');
@@ -148,17 +148,17 @@ class TwigTest
         $processor = $this->getProcessor($this->path . 'twig-child-with-fm.twig');
         $template = file_get_contents($this->path . 'twig-child-with-fm.twig');
         $rendered = $processor->render($template, array(
-            'a_variable' => 'Aha!',
-            'boxes' => array(
-                array(
-                    'size'      => 'huge',
-                    'title'     => 'phelephant'
-                ),
-                array(
-                    'size'      => 'tiny',
-                    'title'     => 'mouse'
-                )
+        'a_variable' => 'Aha!',
+        'boxes' => array(
+            array(
+                'size'      => 'huge',
+                'title'     => 'phelephant'
+            ),
+            array(
+                'size'      => 'tiny',
+                'title'     => 'mouse'
             )
+        )
         ));
 
         $static = file_get_contents(dirname(__FILE__) . '/templates/twig-inherit.html');
@@ -168,11 +168,9 @@ class TwigTest
     private function getProcessor($inputFile, $extraOpts = array())
     {
         $options = array(
-            'phr_template_filename' => basename($inputFile),
-            'phr_template_dir'      => dirname($inputFile),
+        'phr_template_filename' => basename($inputFile),
+        'phr_template_dir'      => dirname($inputFile),
         );
         return new TestProcessor(array_merge($options, $extraOpts));
     }
-
-
 }

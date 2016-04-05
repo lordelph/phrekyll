@@ -19,6 +19,7 @@
  */
 
 namespace PhrekyllTest\Outputter;
+
 use Phrekyll\Outputter\DefaultOutputter as Outputter;
 
 /**
@@ -26,8 +27,7 @@ use Phrekyll\Outputter\DefaultOutputter as Outputter;
  * @package     Phrekyll\Outputter
  * @author      Victor Farazdagi
  */
-class DefaultOutputterTest
-    extends \PHPUnit_Framework_TestCase
+class DefaultOutputterTest extends \PHPUnit_Framework_TestCase
 {
     public function testStdOut()
     {

@@ -19,16 +19,16 @@
  */
 
 namespace PhrekyllTest\Site;
-use Phrekyll\Site\DefaultSite as Site,
-    Phrekyll\Outputter\TestOutputter;
+
+use Phrekyll\Site\DefaultSite as Site;
+use Phrekyll\Outputter\TestOutputter;
 
 /**
  * @category    Phrekyll
  * @package     Phrekyll\Site
  * @author      Victor Farazdagi
  */
-class DefaultSiteTest
-    extends \PHPUnit_Framework_TestCase
+class DefaultSiteTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
@@ -69,34 +69,61 @@ class DefaultSiteTest
 
         // test existence of generated files
         // -> redundant with assertFileEquals below
-        $this->assertFileExists($out . '2011-02-24-default-site.html',
-            "Process Twig files into HTML files");
-        $this->assertFileExists($out . 'markdown.html',
-            "Process Markdown files into HTML files");
-        $this->assertFileExists($out . 'textile.html',
-            "Process Textile files into HTML files");
-        $this->assertFileExists($out . 'media/img/test.png',
-            "Copy files in media folder");
+        $this->assertFileExists(
+            $out . '2011-02-24-default-site.html',
+            "Process Twig files into HTML files"
+        );
+        $this->assertFileExists(
+            $out . 'markdown.html',
+            "Process Markdown files into HTML files"
+        );
+        $this->assertFileExists(
+            $out . 'textile.html',
+            "Process Textile files into HTML files"
+        );
+        $this->assertFileExists(
+            $out . 'media/img/test.png',
+            "Copy files in media folder"
+        );
 
         // test processor renderers
-        $this->assertFileEquals($path.'expected/2011-02-24-default-site.html', $out.'2011-02-24-default-site.html',
-            "Compile Twig files as expected");
-        $this->assertFileEquals($path.'expected/markdown.html', $out.'markdown.html',
-            "Compile Markdown files as expected");
-        $this->assertFileEquals($path.'expected/textile.html', $out.'textile.html',
-            "Compile Textile files as expected");
+        $this->assertFileEquals(
+            $path.'expected/2011-02-24-default-site.html',
+            $out.'2011-02-24-default-site.html',
+            "Compile Twig files as expected"
+        );
+        $this->assertFileEquals(
+            $path.'expected/markdown.html',
+            $out.'markdown.html',
+            "Compile Markdown files as expected"
+        );
+        $this->assertFileEquals(
+            $path.'expected/textile.html',
+            $out.'textile.html',
+            "Compile Textile files as expected"
+        );
 
         // test copy integrity
-        $this->assertFileEquals($in.'media/img/test.png', $out.'media/img/test.png',
-            "Fully copy file contents");
-        $this->assertFileEquals($in.'favicon.ico', $out.'favicon.ico',
-            "Copy files specified in config.yml `copy` array");
+        $this->assertFileEquals(
+            $in.'media/img/test.png',
+            $out.'media/img/test.png',
+            "Fully copy file contents"
+        );
+        $this->assertFileEquals(
+            $in.'favicon.ico',
+            $out.'favicon.ico',
+            "Copy files specified in config.yml `copy` array"
+        );
 
         // test skipping
-        $this->assertFileNotExists($out . 'media/skipped.bak',
-            "Skip files whose name match at least one of config.yml skip regexes");
-        $outputter->assertInLogs('entries/skipped.twig SKIPPED',
-            "Skip files with skip:true in the frontmatter : expected to find '%s' in logs:\n\n%s");
+        $this->assertFileNotExists(
+            $out . 'media/skipped.bak',
+            "Skip files whose name match at least one of config.yml skip regexes"
+        );
+        $outputter->assertInLogs(
+            'entries/skipped.twig SKIPPED',
+            "Skip files with skip:true in the frontmatter : expected to find '%s' in logs:\n\n%s"
+        );
 
         // test outputter
         $outputter->assertInLogs("2011-02-24-default-site.twig parsed");
@@ -139,18 +166,28 @@ class DefaultSiteTest
         // Still... TESTS TESTS TESTS
 
         // test existence of generated files
-        $this->assertFileExists($out . '2011-02-24-default-site.html',
-            "Process Twig files into HTML files");
-        $this->assertFileExists($out . 'media/img/test.png',
-            "Copy files in media folder");
+        $this->assertFileExists(
+            $out . '2011-02-24-default-site.html',
+            "Process Twig files into HTML files"
+        );
+        $this->assertFileExists(
+            $out . 'media/img/test.png',
+            "Copy files in media folder"
+        );
 
         // test copy integrity
-        $this->assertFileEquals($in.'media/img/test.png', $out.'media/img/test.png',
-            "Fully copy file contents");
+        $this->assertFileEquals(
+            $in.'media/img/test.png',
+            $out.'media/img/test.png',
+            "Fully copy file contents"
+        );
 
         // test processor renderers
-        $this->assertFileEquals($path.'expected/2011-02-24-default-site.html', $out.'2011-02-24-default-site.html',
-            "Compile Twig files as expected");
+        $this->assertFileEquals(
+            $path.'expected/2011-02-24-default-site.html',
+            $out.'2011-02-24-default-site.html',
+            "Compile Twig files as expected"
+        );
     }
 
     private function cleanOutputDirectory()

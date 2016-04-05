@@ -19,6 +19,7 @@
  */
 
 namespace PhrekyllTest\Site\View;
+
 use Phrekyll\Site\View\Plain as View;
 
 /**
@@ -26,17 +27,17 @@ use Phrekyll\Site\View\Plain as View;
  * @package     Phrekyll\Site\View
  * @author      Victor Farazdagi
  */
-class PlainTest
-    extends \PHPUnit_Framework_TestCase
+class PlainTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp()
-    {}
+    {
+    }
 
     public function testViewCreation()
     {
         $in = dirname(__FILE__) . '/entries/htaccess';
         $out = dirname(__FILE__) . '/out';
-        $view = new View($in , $out);
+        $view = new View($in, $out);
 
         $this->assertInstanceOf('\Phrekyll\Site\View\Plain', $view);
     }
@@ -98,6 +99,4 @@ class PlainTest
 
         $rendered = $view->render();
     }
-
-
 }

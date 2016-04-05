@@ -19,16 +19,16 @@
  */
 
 namespace PhrekyllTest\Runner\CommandLine;
-use Phrekyll\Runner\CommandLine\Reader,
-    Phrekyll\Outputter\TestOutputter as Outputter;
+
+use Phrekyll\Runner\CommandLine\Reader;
+use Phrekyll\Outputter\TestOutputter as Outputter;
 
 /**
  * @category    Phrekyll
  * @package     Phrekyll\Runner
  * @author      Victor Farazdagi
  */
-class ReaderTest
-    extends \PHPUnit_Framework_TestCase
+class ReaderTest extends \PHPUnit_Framework_TestCase
 {
     public function testReader()
     {
@@ -55,6 +55,4 @@ class ReaderTest
 
         unlink(dirname(__FILE__) . '/stdin');
     }
-
-
 }

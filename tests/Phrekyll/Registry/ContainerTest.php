@@ -19,17 +19,17 @@
  */
 
 namespace PhrekyllTest;
-use Phrekyll\Registry\Container,
-    Phrekyll\Registry\Dao\Serialized as Dao,
-    \PHPUnit_Framework_TestCase as TestCase;
+
+use Phrekyll\Registry\Container;
+use Phrekyll\Registry\Dao\Serialized as Dao;
+use \PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * @category    PhrekyllTest
  * @package     Phrekyll\Registry
  * @author      Victor Farazdagi
  */
-class ContainerTest
-    extends TestCase
+class ContainerTest extends TestCase
 {
     public function testParameterSetting()
     {
@@ -75,7 +75,10 @@ class ContainerTest
         $this->assertFalse(file_exists($path . '/.phrekyll/.registry'));
         $container->save();
         $this->assertTrue(file_exists($path . '/.phrekyll/.registry'));
-        $this->assertSame(file_get_contents($path . '/registry.serialized'), file_get_contents($path . '/.phrekyll/.registry'));
+        $this->assertSame(
+            file_get_contents($path . '/registry.serialized'),
+            file_get_contents($path . '/.phrekyll/.registry')
+        );
 
         unset($container);
         $container = new Container($dao);
@@ -104,7 +107,10 @@ class ContainerTest
         $this->assertFalse(file_exists($path . '/.phrekyll/.registry'));
         $container->save();
         $this->assertTrue(file_exists($path . '/.phrekyll/.registry'));
-        $this->assertSame(file_get_contents($path . '/registry.serialized'), file_get_contents($path . '/.phrekyll/.registry'));
+        $this->assertSame(
+            file_get_contents($path . '/registry.serialized'),
+            file_get_contents($path . '/.phrekyll/.registry')
+        );
 
         unset($container);
         $container = new Container();

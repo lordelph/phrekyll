@@ -22,6 +22,7 @@
  */
 
 namespace PhrekyllPlugin\Provider;
+
 use Phrekyll\Provider;
 
 /**
@@ -31,8 +32,7 @@ use Phrekyll\Provider;
  * @package     Phrekyll\Provider
  * @author      Victor Farazdagi
  */
-class PluginProvider
-    extends Provider\Base
+class PluginProvider extends Provider\Base
 {
     /**
      * Get generated content
@@ -51,5 +51,4 @@ class PluginProvider
         }
         return file_get_contents($path);
     }
-
 }

@@ -19,6 +19,7 @@
  */
 
 namespace PhrekyllTest\Site\View;
+
 use PhrekyllTest\Site\View\MockView as View;
 
 /**
@@ -26,17 +27,17 @@ use PhrekyllTest\Site\View\MockView as View;
  * @package     Phrekyll\Site\View
  * @author      Victor Farazdagi
  */
-class BaseTest
-    extends \PHPUnit_Framework_TestCase
+class BaseTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp()
-    {}
+    {
+    }
 
     public function testViewCreation()
     {
         $in = dirname(__FILE__) . '/../project/.phrekyll/entries/fm-parsing.txt';
         $out = dirname(__FILE__) . '/out';
-        $view = new View($in , $out);
+        $view = new View($in, $out);
 
         $this->assertInstanceOf('\PhrekyllTest\Site\View\MockView', $view);
     }
@@ -50,9 +51,7 @@ class BaseTest
     }
 }
 
-class MockView
-    extends \Phrekyll\Site\View\Base
-    implements \Phrekyll\Site\View
+class MockView extends \Phrekyll\Site\View\Base implements \Phrekyll\Site\View
 {
     /**
      * Initialize view

@@ -20,9 +20,10 @@
  */
 
 namespace PhrekyllTest;
-use Phrekyll\Registry\Container,
-    Phrekyll\Registry\Dao\Serialized as Dao,
-    \PHPUnit_Framework_TestCase as TestCase;
+
+use Phrekyll\Registry\Container;
+use Phrekyll\Registry\Dao\Serialized as Dao;
+use \PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * @category    PhrekyllTest
@@ -30,8 +31,7 @@ use Phrekyll\Registry\Container,
  * @subpackage  Dao
  * @author      Victor Farazdagi
  */
-class SerializedTest
-    extends TestCase
+class SerializedTest extends TestCase
 {
     public function testInit()
     {
@@ -68,7 +68,8 @@ class SerializedTest
         $this->assertTrue(file_exists($path . '/.phrekyll/.registry'));
         $this->assertSame(
             file_get_contents(dirname(__FILE__) . '/../project/registry.serialized'),
-            file_get_contents($path . '/.phrekyll/.registry'));
+            file_get_contents($path . '/.phrekyll/.registry')
+        );
 
         // test read
         unset($container);

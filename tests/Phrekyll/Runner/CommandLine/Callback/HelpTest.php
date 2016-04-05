@@ -19,19 +19,19 @@
  */
 
 namespace PhrekyllTest\Runner\CommandLine\Callback;
-use Phrekyll\Runner\CommandLine\Callback\Help as Callback,
-    Phrekyll\Runner\CommandLine as Runner,
-    Phrekyll\Runner\CommandLine\Parser,
-    Phrekyll\Outputter\TestOutputter as Outputter,
-    Phrekyll\Runner\CommandLine\Command;
+
+use Phrekyll\Runner\CommandLine\Callback\Help as Callback;
+use Phrekyll\Runner\CommandLine as Runner;
+use Phrekyll\Runner\CommandLine\Parser;
+use Phrekyll\Outputter\TestOutputter as Outputter;
+use Phrekyll\Runner\CommandLine\Command;
 
 /**
  * @category    Phrekyll
  * @package     Phrekyll\Runner\CommandLine\Callback
  * @author      Victor Farazdagi
  */
-class HelpTest
-    extends \PHPUnit_Framework_TestCase
+class HelpTest extends \PHPUnit_Framework_TestCase
 {
     private $runner;
     private $outputter;
@@ -340,5 +340,4 @@ class HelpTest
         $args = explode(' ', $cmd);
         return $this->parser->parse(count($args), $args);
     }
-
 }

@@ -19,16 +19,16 @@
  */
 
 namespace PhrekyllTest\Provider;
-use \PHPUnit_Framework_TestCase as TestCase,
-    Phrekyll\Provider\LoadFromFile as Provider;
+
+use \PHPUnit_Framework_TestCase as TestCase;
+use Phrekyll\Provider\LoadFromFile as Provider;
 
 /**
  * @category    PhrekyllTest
  * @package     Phrekyll\Provider
  * @author      Victor Farazdagi
  */
-class LoadFromFileProviderTest
-    extends TestCase
+class LoadFromFileProviderTest extends TestCase
 {
     public function testProvider()
     {

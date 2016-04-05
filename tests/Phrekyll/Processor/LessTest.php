@@ -19,6 +19,7 @@
  */
 
 namespace PhrekyllTest\Processor;
+
 use Phrekyll\Processor\Less as Processor;
 
 /**
@@ -26,8 +27,7 @@ use Phrekyll\Processor\Less as Processor;
  * @package     Phrekyll\Processor
  * @author      Victor Farazdagi
  */
-class LessTest
-    extends \PHPUnit_Framework_TestCase
+class LessTest extends \PHPUnit_Framework_TestCase
 {
     private $path;
 
@@ -64,5 +64,4 @@ class LessTest
         $rendered = $processor->render($tpl);
         $this->assertSame(trim($rendered), trim($expectedResult));
     }
-
 }

@@ -19,16 +19,16 @@
  */
 
 namespace PhrekyllTest\Runner\CommandLine;
-use Phrekyll\Runner\CommandLine\Parser,
-    Phrekyll\Runner\CommandLine\Command;
+
+use Phrekyll\Runner\CommandLine\Parser;
+use Phrekyll\Runner\CommandLine\Command;
 
 /**
  * @category    Phrekyll
  * @package     Phrekyll\Runner
  * @author      Victor Farazdagi
  */
-class ParserTest
-    extends \PHPUnit_Framework_TestCase
+class ParserTest extends \PHPUnit_Framework_TestCase
 {
     private $paths = array();
 

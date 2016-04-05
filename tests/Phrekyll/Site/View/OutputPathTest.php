@@ -19,19 +19,20 @@
  */
 
 namespace PhrekyllTest\Site\View;
-use Phrekyll\Site\View\OutputPath,
-    Phrekyll\Site\View;
+
+use Phrekyll\Site\View\OutputPath;
+use Phrekyll\Site\View;
 
 /**
  * @category    Phrekyll
  * @package     Phrekyll\Site
  * @author      Victor Farazdagi
  */
-class OutputPathTest
-    extends \PHPUnit_Framework_TestCase
+class OutputPathTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp()
-    {}
+    {
+    }
 
     public function testEntriesPaths()
     {
@@ -104,5 +105,4 @@ class OutputPathTest
         $path->setView($view);
         $this->assertSame('/var/www/output/sub/folder/some-entry.js', $path->get());
     }
-
 }

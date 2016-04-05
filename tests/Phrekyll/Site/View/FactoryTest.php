@@ -19,19 +19,20 @@
  */
 
 namespace PhrekyllTest\Site\View;
-use Phrekyll\Site\View\Factory as Factory,
-    Phrekyll\Site\View;
+
+use Phrekyll\Site\View\Factory as Factory;
+use Phrekyll\Site\View;
 
 /**
  * @category    Phrekyll
  * @package     Phrekyll\Site\View
  * @author      Victor Farazdagi
  */
-class FactoryTest
-    extends \PHPUnit_Framework_TestCase
+class FactoryTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp()
-    {}
+    {
+    }
 
     public function testImplicitHtmlFileCreation()
     {
@@ -51,8 +52,10 @@ class FactoryTest
         $path = dirname(__FILE__) . '/../project/.phrekyll/entries/';
         $input = $path . 'not-found.twig';
 
-        $this->setExpectedException('RuntimeException',
-            "View source file cannot be read: {$input}");
+        $this->setExpectedException(
+            'RuntimeException',
+            "View source file cannot be read: {$input}"
+        );
 
         $factory = new Factory();
         $view = $factory
@@ -72,5 +75,4 @@ class FactoryTest
                     ->create();
         $this->assertInstanceOf('\Phrekyll\Site\View\Plain', $view);
     }
-
 }

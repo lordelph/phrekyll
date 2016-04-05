@@ -19,6 +19,7 @@
  */
 
 namespace PhrekyllTest\Processor;
+
 use Phrekyll\Processor\Textile as Processor;
 
 /**
@@ -26,8 +27,7 @@ use Phrekyll\Processor\Textile as Processor;
  * @package     Phrekyll\Processor
  * @author      Victor Farazdagi
  */
-class TextileTest
-    extends \PHPUnit_Framework_TestCase
+class TextileTest extends \PHPUnit_Framework_TestCase
 {
     private $path;
 

@@ -19,17 +19,17 @@
  */
 
 namespace PhrekyllTest;
-use Phrekyll\Path,
-    Phrekyll\Path\Project as ProjectPath,
-    \PHPUnit_Framework_TestCase as TestCase;
+
+use Phrekyll\Path;
+use Phrekyll\Path\Project as ProjectPath;
+use \PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * @category    Phrekyll
  * @package     Phrekyll
  * @author      Victor Farazdagi
  */
-class ProjectTest
-    extends TestCase
+class ProjectTest extends TestCase
 {
     public function testPathCalculation()
     {
@@ -39,28 +39,36 @@ class ProjectTest
 
         $this->assertSame(
             $basePath . '.phrekyll',
-            $path->set($basePath . 'sub')->get());
+            $path->set($basePath . 'sub')->get()
+        );
         $this->assertSame(
             $basePath . '.phrekyll',
-            $path->set($basePath . 'sub/')->get());
+            $path->set($basePath . 'sub/')->get()
+        );
         $this->assertSame(
             $basePath . '.phrekyll',
-            $path->set($basePath . 'sub/folder')->get());
+            $path->set($basePath . 'sub/folder')->get()
+        );
         $this->assertSame(
             $basePath . '.phrekyll',
-            $path->set($basePath . 'sub/folder/')->get());
+            $path->set($basePath . 'sub/folder/')->get()
+        );
         $this->assertSame(
             $basePath . 'sub/folder/subsub/.phrekyll',
-            $path->set($basePath . 'sub/folder/subsub')->get());
+            $path->set($basePath . 'sub/folder/subsub')->get()
+        );
         $this->assertSame(
             $basePath . 'sub/folder/subsub/.phrekyll',
-            $path->set($basePath . 'sub/folder/subsub/')->get());
+            $path->set($basePath . 'sub/folder/subsub/')->get()
+        );
         $this->assertSame(
             $basePath . 'sub/folder/subsub/.phrekyll',
-            $path->set($basePath . 'sub/folder/subsub/.phrekyll')->get());
+            $path->set($basePath . 'sub/folder/subsub/.phrekyll')->get()
+        );
         $this->assertSame(
             $basePath . 'sub/folder/subsub/.phrekyll',
-            $path->set($basePath . 'sub/folder/subsub/.phrekyll/')->get());
+            $path->set($basePath . 'sub/folder/subsub/.phrekyll/')->get()
+        );
 
         $this->assertSame('', $path->set("/var")->get());
     }
@@ -77,8 +85,14 @@ class ProjectTest
         $this->assertSame($basePath . '.phrekyll', $path->set($basePath . 'sub/folder/') . '');
         $this->assertSame($basePath . 'sub/folder/subsub/.phrekyll', $path->set($basePath . 'sub/folder/subsub') . '');
         $this->assertSame($basePath . 'sub/folder/subsub/.phrekyll', $path->set($basePath . 'sub/folder/subsub/') . '');
-        $this->assertSame($basePath . 'sub/folder/subsub/.phrekyll', $path->set($basePath . 'sub/folder/subsub/.phrekyll') . '');
-        $this->assertSame($basePath . 'sub/folder/subsub/.phrekyll', $path->set($basePath . 'sub/folder/subsub/.phrekyll/') . '');
+        $this->assertSame(
+            $basePath . 'sub/folder/subsub/.phrekyll',
+            $path->set($basePath . 'sub/folder/subsub/.phrekyll') . ''
+        );
+        $this->assertSame(
+            $basePath . 'sub/folder/subsub/.phrekyll',
+            $path->set($basePath . 'sub/folder/subsub/.phrekyll/') . ''
+        );
 
         $this->assertSame('', (string)$path->set("/var"));
     }
@@ -90,4 +104,3 @@ class ProjectTest
         $path->get();
     }
 }
-

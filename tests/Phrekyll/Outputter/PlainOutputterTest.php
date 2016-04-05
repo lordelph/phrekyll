@@ -19,6 +19,7 @@
  */
 
 namespace PhrekyllTest\Outputter;
+
 use Phrekyll\Outputter\PlainOutputter as Outputter;
 
 /**
@@ -26,8 +27,7 @@ use Phrekyll\Outputter\PlainOutputter as Outputter;
  * @package     Phrekyll\Outputter
  * @author      Victor Farazdagi
  */
-class PlainOutputterTest
-    extends \PHPUnit_Framework_TestCase
+class PlainOutputterTest extends \PHPUnit_Framework_TestCase
 {
 
     public function testStdOut()

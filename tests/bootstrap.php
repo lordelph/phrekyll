@@ -1,5 +1,6 @@
 <?php
 namespace Phrekyll;
+
 use Phrekyll\Autoloader as Loader;
 
 $path = realpath(dirname(__FILE__) . '/../');

@@ -19,6 +19,7 @@
  */
 
 namespace PhrekyllTest\Site\View;
+
 use Phrekyll\Site\View\Less as View;
 
 /**
@@ -26,17 +27,17 @@ use Phrekyll\Site\View\Less as View;
  * @package     Phrekyll\Site\View
  * @author      Victor Farazdagi
  */
-class LessTest
-    extends \PHPUnit_Framework_TestCase
+class LessTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp()
-    {}
+    {
+    }
 
     public function testViewCreation()
     {
         $in = dirname(__FILE__) . '/styles/style.less';
         $out = dirname(__FILE__) . '/out';
-        $view = new View($in , $out);
+        $view = new View($in, $out);
 
         $this->assertInstanceOf('\Phrekyll\Site\View\Less', $view);
     }
@@ -101,6 +102,4 @@ class LessTest
 
         $rendered = $view->render();
     }
-
-
 }

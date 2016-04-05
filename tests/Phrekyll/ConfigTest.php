@@ -19,6 +19,7 @@
  */
 
 namespace PhrekyllTest;
+
 use Phrekyll\Config;
 
 /**
@@ -26,11 +27,11 @@ use Phrekyll\Config;
  * @package     Phrekyll
  * @author      Victor Farazdagi
  */
-class ConfigTest
-    extends \PHPUnit_Framework_TestCase
+class ConfigTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp()
-    {}
+    {
+    }
 
     public function testInitialization()
     {
@@ -57,6 +58,4 @@ class ConfigTest
         $this->assertInstanceOf('\Phrekyll\Config', $config);
         $this->assertTrue(isset($config['phrekyll']['command']['name']));
     }
-
-
 }

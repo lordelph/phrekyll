@@ -19,6 +19,7 @@
  */
 
 namespace PhrekyllTest\Site\View;
+
 use Phrekyll\Site\View\Textile as View;
 
 /**
@@ -26,17 +27,17 @@ use Phrekyll\Site\View\Textile as View;
  * @package     Phrekyll\Site\View
  * @author      Victor Farazdagi
  */
-class TextileTest
-    extends \PHPUnit_Framework_TestCase
+class TextileTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp()
-    {}
+    {
+    }
 
     public function testViewCreation()
     {
         $in = dirname(__FILE__) . '/../project/.phrekyll/entries/textile.textile';
         $out = dirname(__FILE__) . '/out';
-        $view = new View($in , $out);
+        $view = new View($in, $out);
 
         $this->assertInstanceOf('\Phrekyll\Site\View\Textile', $view);
     }
@@ -91,6 +92,4 @@ class TextileTest
         $rendered = $view->render(array());
 
     }
-
-
 }

@@ -19,6 +19,7 @@
  */
 
 namespace PhrekyllTest\Processor;
+
 use Phrekyll\Processor\Markdown as Processor;
 
 /**
@@ -26,8 +27,7 @@ use Phrekyll\Processor\Markdown as Processor;
  * @package     Phrekyll\Processor
  * @author      Victor Farazdagi
  */
-class MarkdownTest
-    extends \PHPUnit_Framework_TestCase
+class MarkdownTest extends \PHPUnit_Framework_TestCase
 {
     private $path;
 

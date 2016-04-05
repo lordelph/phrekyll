@@ -19,6 +19,7 @@
  */
 
 namespace PhrekyllTest\Processor;
+
 use Phrekyll\Processor\Scss as Processor;
 
 /**
@@ -26,8 +27,7 @@ use Phrekyll\Processor\Scss as Processor;
  * @package     Phrekyll\Processor
  * @author      Victor Farazdagi
  */
-class ScssTest
-    extends \PHPUnit_Framework_TestCase
+class ScssTest extends \PHPUnit_Framework_TestCase
 {
     private $path;
 
@@ -50,5 +50,4 @@ class ScssTest
 
         $this->assertSame($processor->getConfig(), $configSample);
     }
-
 }

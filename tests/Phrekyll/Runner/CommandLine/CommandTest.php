@@ -19,6 +19,7 @@
  */
 
 namespace PhrekyllTest\Runner\CommandLine;
+
 use Phrekyll\Runner\CommandLine\Command;
 
 /**
@@ -26,8 +27,7 @@ use Phrekyll\Runner\CommandLine\Command;
  * @package     Phrekyll\Runner\CommandLine
  * @author      Victor Farazdagi
  */
-class CommandTest
-    extends \PHPUnit_Framework_TestCase
+class CommandTest extends \PHPUnit_Framework_TestCase
 {
     private $path;
 
@@ -69,5 +69,4 @@ class CommandTest
         $args = explode(' ', $cmd);
         return $this->parser->parse(count($args), $args);
     }
-
 }
