@@ -17,7 +17,7 @@ h2. Philosophy
 
 * Configurable: you should be able to tune it to your needs
 * SCM-Enabled: no extra work to make your site git-enabled
-* Focus on PHP 7 - if you want something older, use "phrozn":https://github.com/Pawka/phrozn
+* Focus on PHP5.6 and PHP 7 - if you want something older, use "phrozn":https://github.com/Pawka/phrozn
 
 h2. Install
 
