@@ -6,6 +6,8 @@ checks:
     php: true
 
 build:
+    environment:
+        php: '5.6.16'
     tests:
         override:
             -
