@@ -26,4 +26,16 @@
         </pharpackage>
         <chmod file="bin/phrekyll.phar" mode="0755" />
     </target>
+
+    <target name="phpcs">
+        <phpcodesniffer standard="PSR2"
+            description="Run PSR2 standards over the codebase"
+            haltonerror="true">
+            <fileset dir="./Phrekyll">
+                <exclude name="**/scss.inc.php"/>
+                <include name="**/*.php"/>
+            </fileset>
+            <formatter type="full" usefile="false"/>
+        </phpcodesniffer>
+    </target>
 </project>
