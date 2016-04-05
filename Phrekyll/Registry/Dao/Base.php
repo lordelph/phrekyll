@@ -68,7 +68,7 @@ abstract class Base implements Dao
      *
      * @param \Phrekyll\Registry\Container $container Registry container
      *
-     * @return \Phrekyll\Has\Container
+     * @return \Phrekyll\Registry\Dao\Base
      */
     public function setContainer(\Phrekyll\Registry\Container $container = null)
     {
@@ -91,7 +91,7 @@ abstract class Base implements Dao
      *
      * @param string $path Project path.
      *
-     * @return \Phrekyll\Has\ProjectPath
+     * @return \Phrekyll\Registry\Dao\Base
      */
     public function setProjectPath($path)
     {
@@ -118,7 +118,7 @@ abstract class Base implements Dao
      *
      * @param string $path File path
      *
-     * @return \Phrekyll\Has\OutputFile
+     * @return \Phrekyll\Registry\Dao\Base
      */
     public function setOutputFile($path)
     {

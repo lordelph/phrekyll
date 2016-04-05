@@ -68,7 +68,6 @@ class CommandLine implements \Phrekyll\Runner
      * Create runner
      *
      * @param \Phrekyll\Autoloader $loader Instance of auto-loader
-     * @param array $paths Folder paths
      */
     public function __construct($loader)
     {

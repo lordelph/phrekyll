@@ -32,7 +32,7 @@ interface InputFile
     /**
      * Set input file path
      *
-     * @param string $file Path to file
+     * @param string $path Path to file
      *
      * @return \Phrekyll\Has\InputFile
      */

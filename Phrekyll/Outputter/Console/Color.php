@@ -39,7 +39,7 @@ class Color
     private static $instance;
 
     /**
-     * @var \Console_Color
+     * @var ConsoleColorer
      */
     private $consoleColorer;
 

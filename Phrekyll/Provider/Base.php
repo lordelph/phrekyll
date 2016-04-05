@@ -51,7 +51,9 @@ abstract class Base implements Provider
      */
     public function __construct($options = null)
     {
-        $this->setConfig($options);
+        if (!is_null($options)) {
+            $this->setConfig($options);
+        }
     }
 
     /**

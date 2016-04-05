@@ -57,7 +57,7 @@ abstract class AbstractOutputter implements \Phrekyll\Outputter
      */
     public function stdout($msg, $status = self::STATUS_OK)
     {
-        if ($this->stdout) {
+        if ($this->stdout !== null) {
             fwrite($this->stdout, $msg);
         } else {
             echo $msg;
@@ -75,7 +75,7 @@ abstract class AbstractOutputter implements \Phrekyll\Outputter
      */
     public function stderr($msg, $status = self::STATUS_FAIL)
     {
-        if ($this->stderr) {
+        if ($this->stderr !== null) {
             fwrite($this->stderr, $msg);
         } else {
             echo $msg;

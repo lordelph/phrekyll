@@ -33,7 +33,7 @@ class Scss extends Base implements \Phrekyll\Processor
 {
     /**
      * Reference to SCSS compiler
-     * @var \
+     * @var \scssc
      */
     protected $scssc;
 

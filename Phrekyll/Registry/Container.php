@@ -101,7 +101,7 @@ class Container implements
      *
      * @param \Phrekyll\Registry\Dao $dao Data access object
      *
-     * @return \Phrekyll\Has\Dao
+     * @return \Phrekyll\Registry\Container
      */
     public function setDao(\Phrekyll\Registry\Dao $dao)
     {
@@ -115,7 +115,7 @@ class Container implements
     /**
      * Get DAO.
      *
-     * @return \Phrekyll\Has\Dao
+     * @return \Phrekyll\Registry\Dao
      */
     public function getDao()
     {
@@ -150,7 +150,7 @@ class Container implements
      *
      * @param array $values Values attribute
      *
-     * @return \Phrekyll\Has\Values
+     * @return \Phrekyll\Registry\Container
      */
     public function setValues($values)
     {
@@ -161,7 +161,7 @@ class Container implements
     /**
      * Get values attribute.
      *
-     * @return \Phrekyll\Has\Values
+     * @return array
      */
     public function getValues()
     {

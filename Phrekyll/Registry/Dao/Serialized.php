@@ -36,7 +36,7 @@ class Serialized extends Base implements Dao
     /**
      * Save current registry container
      *
-     * @return \Phorzn\Registry\Dao
+     * @return \Phrekyll\Registry\Dao\Serialized
      */
     public function save()
     {

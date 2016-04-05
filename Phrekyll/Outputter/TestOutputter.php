@@ -51,7 +51,7 @@ class TestOutputter implements \Phrekyll\Outputter
     /**
      * Add line to output
      *
-     * @param string $str Line to add
+     * @param string $msg Line to add
      * @param string $status Output status
      *
      * @return \Phrekyll\Outputter
@@ -92,7 +92,7 @@ class TestOutputter implements \Phrekyll\Outputter
      * Asserts that the log buffer contains specified message
      *
      * @param string $expected Message subsctring
-     * @param string $errmsg The error message to display.
+     * @param string $errorMsg The error message to display.
      *
      * @return void
      */
@@ -110,16 +110,16 @@ class TestOutputter implements \Phrekyll\Outputter
     /**
      * Asserts that the log buffer does NOT contain specified message
      *
-     * @param string $expected Message subsctring
-     * @param string $errmsg The error message to display.
+     * @param string $expected Message substring
+     * @param string $errorMsg The error message to display.
      *
      * @return void
      */
-    public function assertNotInLogs($message, $errorMsg = "Unexpected string '%s' found in logs:\n\n%s")
+    public function assertNotInLogs($expected, $errorMsg = "Unexpected string '%s' found in logs:\n\n%s")
     {
         foreach ($this->getLines() as $log) {
-            if (false !== stripos($log, $message)) {
-                $this->testCase->fail(sprintf($errorMsg, $message, var_export($this->getLines(), true)));
+            if (false !== stripos($log, $expected)) {
+                $this->testCase->fail(sprintf($errorMsg, $expected, var_export($this->getLines(), true)));
             }
         }
 

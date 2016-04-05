@@ -51,7 +51,7 @@ abstract class Base implements CommandLine\Callback
     private $useAnsiColors;
 
     /**
-     * @var \Console_CommandLine_Outputter
+     * @var \Phrekyll\Outputter
      */
     private $outputter;
 
@@ -81,7 +81,7 @@ abstract class Base implements CommandLine\Callback
     /**
      * Set CLI outputter
      *
-     * @param Console_CommandLine_Outputter $outputter Where to forward output
+     * @param \Phrekyll\Outputter $out Where to forward output
      *
      * @return Phrekyll\Runner\CommandLine\Callback
      */
@@ -94,7 +94,7 @@ abstract class Base implements CommandLine\Callback
     /**
      * Get CLI outputter
      *
-     * @return Console_CommandLine_Outputter CLI outputter instance
+     * @return \Phrekyll\Outputter CLI outputter instance
      */
     public function getOutputter()
     {
@@ -109,7 +109,7 @@ abstract class Base implements CommandLine\Callback
      *
      * @param Console_CommandLine_Result $result Parser's result
      *
-     * @return Phrekyll\Runner\CommandLine\Callback
+     * @return \Phrekyll\Runner\CommandLine\Callback
      */
     public function setParseResult($result)
     {
@@ -132,7 +132,7 @@ abstract class Base implements CommandLine\Callback
      *
      * @param array $config Config array
      *
-     * @return Phrekyll\Runner\CommandLine\Callback
+     * @return \Phrekyll\Runner\CommandLine\Callback\Base
      */
     public function setConfig($config)
     {
@@ -155,7 +155,7 @@ abstract class Base implements CommandLine\Callback
      *
      * @param string $str String to output
      *
-     * @return \Phrekyll\Runner\CommandLine\Callback
+     * @return \Phrekyll\Runner\CommandLine\Callback\Base
      */
     public function out($str)
     {
@@ -167,6 +167,7 @@ abstract class Base implements CommandLine\Callback
         if (count(\ob_get_status()) !== 0) {
             ob_flush();
         }
+        return $this;
     }
 
     /**
@@ -192,7 +193,7 @@ abstract class Base implements CommandLine\Callback
      * to unit test via this method. Simply pass the string you want to be used
      * in place of readline() result.
      *
-     * @return \Phrekyll\Runner\CommandLine\Callback
+     * @return \Phrekyll\Runner\CommandLine\Callback\Base
      */
     public function setUnitTestData($data)
     {
@@ -246,12 +247,9 @@ abstract class Base implements CommandLine\Callback
         }
         $yaml=file_get_contents($file);
         $data = Yaml::parse($yaml);
-
-        if (!$data) {
+        if (empty($data)) {
             return false;
         }
-
-
 
         $docs = $data['docs'];
         $command = $data['command'];
