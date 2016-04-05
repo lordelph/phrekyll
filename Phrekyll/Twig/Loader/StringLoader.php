@@ -27,7 +27,7 @@ namespace Phrekyll\Twig\Loader;
  * @package     Phrekyll\Processor
  * @author      Victor Farazdagi
  */
-class String extends \Twig_Loader_String implements \Twig_LoaderInterface
+class StringLoader extends \Twig_Loader_String implements \Twig_LoaderInterface
 {
     /**
      * Gets the source code of a template, given its name.

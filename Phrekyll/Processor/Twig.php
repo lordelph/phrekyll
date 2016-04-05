@@ -121,7 +121,7 @@ class Twig extends Base implements \Phrekyll\Processor
 
         // add string template loader, which is responsible for loading templates
         // and removing front-matter
-        $chain->addLoader(new \Phrekyll\Twig\Loader\String);
+        $chain->addLoader(new \Phrekyll\Twig\Loader\StringLoader);
 
         return $chain;
     }
