@@ -4,3 +4,12 @@ filter:
         - tests/*
 checks:
     php: true
+
+build:
+	tests:
+	    override:
+            -
+                command: 'phpunit --coverage-clover=clover.out'
+                coverage:
+                    file: 'clover.out'
+                    format: 'php-clover'
