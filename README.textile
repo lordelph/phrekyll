@@ -1,4 +1,4 @@
-h1. Phrekyll !https://travis-ci.org/lordelph/phrekyll.png?branch=master!:https://travis-ci.org/lordelph/phrekyll
+h1. Phrekyll !https://travis-ci.org/lordelph/phrekyll.png?branch=master!:https://travis-ci.org/lordelph/phrekyll !https://scrutinizer-ci.com/g/lordelph/phrekyll/badges/quality-score.png?b=master!:https://scrutinizer-ci.com/g/lordelph/phrekyll/?branch=master
 
 Phrekyll is extremely flexible static site generator in PHP.
 
@@ -10,16 +10,22 @@ This is a fork of the dead "phrozn":https://github.com/Pawka/phrozn project. Her
 
 * Complete renaming of project in all documentation
 * Ensure tests pass in PHP7
-* Eliminate PEAR dependancies and ensure all dependancies are up to date and fit for purpose
+* Adopt PSR-2
+* Eliminate PEAR dependancies 
+* Ensure other dependancies are up to date and fit for purpose
 
 
 h2. Philosophy
 
 * Configurable: you should be able to tune it to your needs
 * SCM-Enabled: no extra work to make your site git-enabled
-* Focus on PHP 7 - if you want something older, use "phrozn":https://github.com/Pawka/phrozn
+* Focus on PHP 7 -  however, at the moment, tests still pass in PHP 5.3.
 
-h2. Install
+h2. Install prebuilt phar
+
+You can download a prebuilt phrekyll.phar from the "latest release here":https://github.com/lordelph/phrekyll/releases/latest
+
+h2. Install from source
 
 Clone repository from github and change to cloned directory.
 
