@@ -11,5 +11,5 @@ before_script:
   - composer install
 
 script:
-  - ./vendor/bin/phpcs --extensions=php --ignore=Vendor/Extra/scss.inc.php Phrekyll
+  - ./vendor/bin/phpcs --extensions=php --standard=PSR2 --ignore=Vendor/Extra/scss.inc.php Phrekyll
   - phpunit --configuration tests/phpunit.xml
